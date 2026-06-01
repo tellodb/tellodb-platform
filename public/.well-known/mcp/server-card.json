@@ -1,0 +1,90 @@
+{
+  "name": "AletheiaDB Memory Engine",
+  "description": "Persistent temporal multi-model memory for AI agents. Hybrid vector + BM25 search, knowledge graphs, deterministic analytics, and fact supersession — in a single binary.",
+  "endpoint": "https://api.tellodb.com/mcp",
+  "tools": [
+    {
+      "name": "search_memory",
+      "description": "Search memories with hybrid vector + lexical retrieval",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Natural language query"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max results (default 10)"
+          },
+          "entity_id": {
+            "type": "string",
+            "description": "Optional entity scope"
+          }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "store_fact",
+      "description": "Store a new fact or observation in memory",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": { "type": "string", "description": "The fact text to store" },
+          "entity_id": { "type": "string", "description": "Entity/subject ID" },
+          "kind": {
+            "type": "string",
+            "description": "Memory kind: Fact, Conversation, Decision, Lesson, SessionSummary"
+          }
+        },
+        "required": ["text", "entity_id"]
+      }
+    },
+    {
+      "name": "explore_graph",
+      "description": "Walk the knowledge graph from an entity to discover connected facts, entities, and topics",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "entity": {
+            "type": "string",
+            "description": "Entity name or ID to start from"
+          },
+          "depth": {
+            "type": "number",
+            "description": "Graph walk depth (default 2)"
+          }
+        },
+        "required": ["entity"]
+      }
+    },
+    {
+      "name": "get_usage_stats",
+      "description": "Get usage statistics for a cluster",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "number",
+            "description": "Number of days to look back (default 30)"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_memory",
+      "description": "Retrieve a specific memory by ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "memory_id": {
+            "type": "string",
+            "description": "Memory ID to retrieve"
+          }
+        },
+        "required": ["memory_id"]
+      }
+    }
+  ]
+}

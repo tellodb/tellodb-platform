@@ -1,0 +1,11 @@
+[functions.provision-vm]
+enabled = true
+verify_jwt = false
+
+[functions.cleanup-vm]
+enabled = true
+verify_jwt = false
+
+[functions.notify-slack]
+enabled = true
+verify_jwt = false

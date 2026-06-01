@@ -1,0 +1,12 @@
+staged=$(git diff --cached --name-only)
+
+deploy_func() {
+  name="$1"
+  if echo "$staged" | grep -q "^supabase/functions/$name/"; then
+    echo "🚀 Changes detected in supabase/functions/$name/ — deploying..."
+    npx supabase functions deploy "$name"
+  fi
+}
+
+deploy_func "provision-vm"
+deploy_func "cleanup-vm"
