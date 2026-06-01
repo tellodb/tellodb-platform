@@ -78,8 +78,8 @@ export default component$(() => {
                 2. Set your API key
               </p>
               <pre class="bg-black/40 rounded-lg p-4 text-sm text-tertiary overflow-x-auto">
-                export ALETHEIADB_API_KEY=your-secret-key export
-                ALETHEIADB_EMBEDDING_MODEL=BAAI/bge-small-en-v1.5
+                export TELLODB_API_KEY=your-secret-key export
+                TELLODB_EMBEDDING_MODEL=BAAI/bge-small-en-v1.5
               </pre>
             </div>
             <div>
@@ -130,7 +130,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Deploy Anywhere | ALETHEIADB",
+  title: "Deploy Anywhere | TELLODB",
   description:
     "Run Tellodb in your own infrastructure. Single binary, zero dependencies, air-gapped ready. Self-hosted AI memory engine.",
   pathname: "/platform/byoc",

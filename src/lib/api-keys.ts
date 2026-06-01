@@ -163,12 +163,12 @@ export async function createApiKey(event: RequestEventCommon, name: string, clus
         console.warn("[createApiKey] Cluster engine_key not found for clusterId:", clusterId);
       }
     } else {
-      const engineUrl = (event.env.get("ALETHEIADB_URL") || process.env.ALETHEIADB_URL || "").replace(/\/+$/, "");
-      const engineKey = event.env.get("ALETHEIADB_ADMIN_KEY") || event.env.get("ALETHEIADB_API_KEY") || process.env.ALETHEIADB_ADMIN_KEY || "";
+      const engineUrl = (event.env.get("TELLODB_URL") || process.env.TELLODB_URL || "").replace(/\/+$/, "");
+      const engineKey = event.env.get("TELLODB_ADMIN_KEY") || event.env.get("TELLODB_API_KEY") || process.env.TELLODB_ADMIN_KEY || "";
       console.log("[createApiKey] global key engine sync, url:", engineUrl, "hasKey:", !!engineKey);
 
       if (!engineUrl || !engineKey) {
-        engineError = "ALETHEIADB_URL or ALETHEIADB_ADMIN_KEY not configured";
+        engineError = "TELLODB_URL or TELLODB_ADMIN_KEY not configured";
         console.error("Engine injection skipped: missing env vars", { hasUrl: !!engineUrl, hasKey: !!engineKey });
       } else {
         try {
@@ -272,8 +272,8 @@ export async function revokeApiKey(event: RequestEventCommon, keyId: string): Pr
         }
       }
     } else if (keyInfo && !keyInfo.cluster_id) {
-      const engineUrl = (event.env.get("ALETHEIADB_URL") || process.env.ALETHEIADB_URL || "").replace(/\/+$/, "");
-      const engineKey = event.env.get("ALETHEIADB_ADMIN_KEY") || event.env.get("ALETHEIADB_API_KEY") || process.env.ALETHEIADB_ADMIN_KEY || "";
+      const engineUrl = (event.env.get("TELLODB_URL") || process.env.TELLODB_URL || "").replace(/\/+$/, "");
+      const engineKey = event.env.get("TELLODB_ADMIN_KEY") || event.env.get("TELLODB_API_KEY") || process.env.TELLODB_ADMIN_KEY || "";
 
       if (engineUrl && engineKey) {
         try {

@@ -88,7 +88,7 @@ serve(async (req) => {
     const clientSecret = Deno.env.get("AZURE_CLIENT_SECRET") || "";
     const tenantId = Deno.env.get("AZURE_TENANT_ID") || "";
     const subscriptionId = Deno.env.get("AZURE_SUBSCRIPTION_ID") || "";
-    const adminKey = Deno.env.get("ALETHEIADB_ADMIN_KEY") || "";
+    const adminKey = Deno.env.get("TELLODB_ADMIN_KEY") || "";
 
     if (!clientId || !clientSecret || !tenantId || !subscriptionId) {
       await supabase
@@ -338,10 +338,10 @@ WorkingDirectory=/var/lib/tellodb
 ExecStart=/usr/local/bin/tellodb-engine
 Restart=on-failure
 RestartSec=5
-Environment=ALETHEIA_API_KEY=${adminKey}
-Environment=ALETHEIA_EMBEDDING_MODEL=BAAI/bge-small-en-v1.5
+Environment=TELLODB_API_KEY=${adminKey}
+Environment=TELLODB_EMBEDDING_MODEL=BAAI/bge-small-en-v1.5
 Environment=PORT=3000
-Environment=ALETHEIA_DATA_DIR=/var/lib/tellodb
+Environment=TELLODB_DATA_DIR=/var/lib/tellodb
 
 [Install]
 WantedBy=multi-user.target

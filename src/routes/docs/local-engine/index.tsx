@@ -39,7 +39,7 @@ export default component$(() => {
       </p>
       <ol>
         <li><strong>Explicit Path:</strong> You can tell the SDK exactly where your binary lives.</li>
-        <li><strong>Environment Variables:</strong> Set <code>ALETHEIADB_BINARY_PATH</code> to override defaults.</li>
+        <li><strong>Environment Variables:</strong> Set <code>TELLODB_BINARY_PATH</code> to override defaults.</li>
         <li><strong>Repo-Local:</strong> It looks in <code>target/release/tellodb</code> if you've just finished a fresh build.</li>
         <li><strong>SDK Cache:</strong> If no binary is found, the SDK can automatically download and cache the latest signed release for your architecture.</li>
       </ol>

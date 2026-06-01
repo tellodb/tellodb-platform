@@ -2704,7 +2704,7 @@ client.ingest(
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Console | ALETHEIADB",
+  title: "Console | TELLODB",
   description: "Mission Control for your agentic memory engine.",
   pathname: "/platform",
   noindex: true,

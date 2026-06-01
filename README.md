@@ -62,7 +62,7 @@ You can test the platform dashboard locally using the demo credentials:
 - **Email:** `demo@tellodb.dev`
 - **Password:** `tellodb-demo`
 
-*(Override these by setting `ALETHEIADB_DEMO_EMAIL` and `ALETHEIADB_DEMO_PASSWORD` in your environment.)*
+*(Override these by setting `TELLODB_DEMO_EMAIL` and `TELLODB_DEMO_PASSWORD` in your environment.)*
 
 ### Blog Authoring
 

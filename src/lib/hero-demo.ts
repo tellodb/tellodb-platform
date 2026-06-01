@@ -99,24 +99,24 @@ export function buildHeroMemoryId(entityId: string, timestamp: number) {
 
 export function heroEngineBaseUrl(event?: HeroEnvEvent) {
   return (
-    readEnvValue(event, "ALETHEIADB_HERO_ENGINE_URL") ??
-    readEnvValue(event, "ALETHEIADB_URL") ??
+    readEnvValue(event, "TELLODB_HERO_ENGINE_URL") ??
+    readEnvValue(event, "TELLODB_URL") ??
     "https://4tcjq5z2yap9nd.api.runpod.ai"
   ).replace(/\/+$/, "");
 }
 
 export function heroEngineApiKey(event?: HeroEnvEvent) {
   return (
-    readEnvValue(event, "ALETHEIADB_HERO_API_KEY") ??
-    readEnvValue(event, "ALETHEIADB_API_KEY") ??
+    readEnvValue(event, "TELLODB_HERO_API_KEY") ??
+    readEnvValue(event, "TELLODB_API_KEY") ??
     DEFAULT_TEST_API_KEY
   ).trim();
 }
 
 export function heroRunpodToken(event?: HeroEnvEvent) {
   return (
-    readEnvValue(event, "ALETHEIADB_HERO_RUNPOD_TOKEN") ??
-    readEnvValue(event, "ALETHEIADB_RUNPOD_TOKEN") ??
+    readEnvValue(event, "TELLODB_HERO_RUNPOD_TOKEN") ??
+    readEnvValue(event, "TELLODB_RUNPOD_TOKEN") ??
     readEnvValue(event, "RUNPOD_API_KEY") ??
     ""
   ).trim();

@@ -179,7 +179,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Sign Up | ALETHEIADB",
+  title: "Sign Up | TELLODB",
   description: "Create your Tellodb account.",
   pathname: "/signup",
   noindex: true

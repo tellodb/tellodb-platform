@@ -2353,7 +2353,7 @@ export default component$(() => {
         <div class="container mx-auto grid grid-cols-1 gap-12 md:grid-cols-5">
           <div class="col-span-1 md:col-span-2">
             <span class="mb-4 block text-xl font-extrabold uppercase tracking-tighter text-on-surface font-headline">
-              ALETHEIADB
+              TELLODB
             </span>
             <p class="mb-6 max-w-sm text-xs md:text-sm leading-relaxed text-tertiary">
               The persistent memory layer for advanced AI agents. Built for
@@ -2510,7 +2510,7 @@ const structuredData = {
 };
 
 export const head: DocumentHead = buildSeoHead({
-  title: "ALETHEIADB | Agents That Remember",
+  title: "TELLODB | Agents That Remember",
   description:
     "Tellodb is the persistent memory layer for AI agents that need temporal awareness, truth extraction, and continuity across models.",
   pathname: "/",

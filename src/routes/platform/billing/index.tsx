@@ -369,7 +369,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Billing | ALETHEIADB",
+  title: "Billing | TELLODB",
   description: "Manage your billing and subscription.",
   pathname: "/platform/billing",
   noindex: true,

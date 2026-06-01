@@ -268,7 +268,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Benchmarks | ALETHEIADB",
+  title: "Benchmarks | TELLODB",
   description:
     "Tellodb benchmark results against Mem0, Zep, and HydraDB on LongMemEval-S. See how our memory engine performs on temporal reasoning and retrieval.",
   pathname: "/platform/benchmarks",

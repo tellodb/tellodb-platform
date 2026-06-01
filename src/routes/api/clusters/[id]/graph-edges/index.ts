@@ -10,7 +10,7 @@ import type { GraphEdge } from "~/lib/tellodb-core";
 /** Parse facts from the Tellodb observation_block textual_content format */
 function parseFactsFromMemory(textualContent: string): Array<{ text: string; terms: string[] }> {
   try {
-    // Content format: "## [ALETHEIA MEMORY CONTEXT]\n### Core State\n{...json...}\n"
+    // Content format: "## [TELLODB MEMORY CONTEXT]\n### Core State\n{...json...}\n"
     const jsonMatch = textualContent.match(/\{[\s\S]+\}/);
     if (!jsonMatch) return [];
     const parsed = JSON.parse(jsonMatch[0]);
@@ -144,7 +144,7 @@ export const onGet: RequestHandler = async (event) => {
 
     const engineUrl = (
       cluster.endpoint_url ||
-      event.env.get("ALETHEIADB_URL") ||
+      event.env.get("TELLODB_URL") ||
       getTellodbCoreUrl()
     ).replace(/\/+$/, "");
 

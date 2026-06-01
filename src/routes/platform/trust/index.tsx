@@ -144,7 +144,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Trust Center | ALETHEIADB",
+  title: "Trust Center | TELLODB",
   description:
     "Security, privacy, and compliance information for Tellodb. SOC 2, GDPR, HIPAA, encryption details.",
   pathname: "/trust",

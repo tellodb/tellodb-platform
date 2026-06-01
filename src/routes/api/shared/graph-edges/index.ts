@@ -97,12 +97,12 @@ export const onGet: RequestHandler = async (event) => {
       .limit(5);
 
     const engineUrl = (
-      event.env.get("ALETHEIADB_URL") ||
+      event.env.get("TELLODB_URL") ||
       getTellodbCoreUrl()
     ).replace(/\/+$/, "");
 
-    const adminKey = event.env.get("ALETHEIADB_ADMIN_KEY") ||
-      event.env.get("ALETHEIADB_API_KEY") || "";
+    const adminKey = event.env.get("TELLODB_ADMIN_KEY") ||
+      event.env.get("TELLODB_API_KEY") || "";
 
     const allEdges: GraphEdge[] = [];
     const seenEdgeIds = new Set<string>();

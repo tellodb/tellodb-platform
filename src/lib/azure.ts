@@ -357,7 +357,7 @@ export async function triggerAzureVMProvisioning(
   const clientSecret = env.get("AZURE_CLIENT_SECRET");
   const tenantId = env.get("AZURE_TENANT_ID");
   const subscriptionId = env.get("AZURE_SUBSCRIPTION_ID");
-  const adminKey = env.get("ALETHEIADB_ADMIN_KEY") || "";
+  const adminKey = env.get("TELLODB_ADMIN_KEY") || "";
 
   if (!clientId || !clientSecret || !tenantId || !subscriptionId) {
     return {

@@ -48,10 +48,10 @@ export const useSearchGraphAction = routeAction$(async (data, event) => {
   try {
     const isFractional = cluster.tier === "fractional";
     const url = isFractional 
-      ? (event.env.get("ALETHEIADB_URL") || process.env.ALETHEIADB_URL || "http://localhost:3000").replace(/\/+$/, "")
+      ? (event.env.get("TELLODB_URL") || process.env.TELLODB_URL || "http://localhost:3000").replace(/\/+$/, "")
       : cluster.endpoint_url.replace(/\/+$/, "");
     const key = isFractional
-      ? (event.env.get("ALETHEIADB_ADMIN_KEY") || event.env.get("ALETHEIADB_API_KEY") || process.env.ALETHEIADB_ADMIN_KEY || "82a2cd542b86763b5941fba04db9802928c53a27256fcccb64e12f414f69826a")
+      ? (event.env.get("TELLODB_ADMIN_KEY") || event.env.get("TELLODB_API_KEY") || process.env.TELLODB_ADMIN_KEY || "82a2cd542b86763b5941fba04db9802928c53a27256fcccb64e12f414f69826a")
       : cluster.engine_key;
 
     const res = await fetch(`${url}/graph/walk`, {
@@ -184,7 +184,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Graph Explorer | ALETHEIADB",
+  title: "Graph Explorer | TELLODB",
   description: "Explore the knowledge graph of your cluster.",
   pathname: "/platform/clusters/[id]/graph",
   noindex: true

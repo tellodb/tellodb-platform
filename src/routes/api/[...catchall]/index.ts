@@ -156,16 +156,16 @@ export const onRequest: RequestHandler = async (event) => {
     // 6. Proxy the request to the correct Rust engine
     const targetUrl = isFractional
       ? (
-          env.get("ALETHEIADB_URL") ||
-          process.env.ALETHEIADB_URL ||
+          env.get("TELLODB_URL") ||
+          process.env.TELLODB_URL ||
           "http://localhost:3000"
         ).replace(/\/+$/, "")
       : customEndpointUrl;
 
     const targetKey = isFractional
-      ? env.get("ALETHEIADB_ADMIN_KEY") ||
-        env.get("ALETHEIADB_API_KEY") ||
-        process.env.ALETHEIADB_ADMIN_KEY ||
+      ? env.get("TELLODB_ADMIN_KEY") ||
+        env.get("TELLODB_API_KEY") ||
+        process.env.TELLODB_ADMIN_KEY ||
         "82a2cd542b86763b5941fba04db9802928c53a27256fcccb64e12f414f69826a"
       : customEngineKey;
 

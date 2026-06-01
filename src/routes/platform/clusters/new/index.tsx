@@ -439,7 +439,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Deploy Cluster | ALETHEIADB",
+  title: "Deploy Cluster | TELLODB",
   description: "Deploy a new Tellodb cluster.",
   pathname: "/platform/clusters/new",
   noindex: true,

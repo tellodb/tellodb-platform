@@ -65,7 +65,7 @@ export const useClusterDetail = routeLoader$(async (event) => {
 
     const apiKey =
       cluster.engine_key ||
-      event.env.get("ALETHEIADB_ADMIN_KEY") ||
+      event.env.get("TELLODB_ADMIN_KEY") ||
       "82a2cd542b86763b5941fba04db9802928c53a27256fcccb64e12f414f69826a";
 
     const { data: apiKeys } = await supabase
@@ -1249,7 +1249,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Cluster Detail | ALETHEIADB",
+  title: "Cluster Detail | TELLODB",
   description: "Manage your Tellodb cluster.",
   pathname: "/platform/clusters/[id]",
   noindex: true,

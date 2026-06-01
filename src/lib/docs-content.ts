@@ -854,7 +854,7 @@ t2: preferred_drink = tea      -> becomes current
           "Your app sends a request to `/v1/chat/completions` on the Tellodb engine.",
           "Tellodb extracts the `user` field from the payload to identify the `entity_id`.",
           "It performs a high-precision semantic lookup based on the latest user message.",
-          "The system prompt is augmented with a structured `[ALETHEIADB PERSISTENT MEMORY]` block.",
+          "The system prompt is augmented with a structured `[TELLODB PERSISTENT MEMORY]` block.",
           "The augmented request is forwarded to OpenAI (or your configured provider).",
           "The final response is returned to your application.",
         ],
@@ -872,7 +872,7 @@ t2: preferred_drink = tea      -> becomes current
 
 client = OpenAI(
     base_url="http://localhost:3000/v1",
-    api_key="YOUR_ALETHEIADB_API_KEY"
+    api_key="YOUR_TELLODB_API_KEY"
 )
 
 # Tellodb will automatically retrieve memories for 'user-42'
@@ -891,8 +891,8 @@ response = client.chat.completions.create(
         ],
         bullets: [
           "OPENAI_API_KEY: Your upstream provider key.",
-          "ALETHEIADB_PROXY_TARGET_URL: The upstream endpoint (defaults to OpenAI).",
-          "ALETHEIADB_PORT: The local port Tellodb is running on (for loopback lookups).",
+          "TELLODB_PROXY_TARGET_URL: The upstream endpoint (defaults to OpenAI).",
+          "TELLODB_PORT: The local port Tellodb is running on (for loopback lookups).",
         ],
       },
     ],
@@ -917,8 +917,8 @@ response = client.chat.completions.create(
             code: `import { TellodbClient } from "tellodb";
 
 const client = TellodbClient.fromCloud({
-  baseUrl: process.env.ALETHEIA_URL!,
-  apiKey: process.env.ALETHEIA_API_KEY!
+  baseUrl: process.env.TELLODB_URL!,
+  apiKey: process.env.TELLODB_API_KEY!
 });`,
           },
         ],
@@ -1865,7 +1865,7 @@ reset first: true`,
           {
             label: "claude_desktop_config.json",
             language: "json",
-            code: '{\n  "mcpServers": {\n    "tellodb": {\n      "command": "npx",\n      "args": ["@tellodb/mcp-client"],\n      "env": {\n        "ALETHEIADB_API_KEY": "YOUR_API_KEY"\n      }\n    }\n  }\n}',
+            code: '{\n  "mcpServers": {\n    "tellodb": {\n      "command": "npx",\n      "args": ["@tellodb/mcp-client"],\n      "env": {\n        "TELLODB_API_KEY": "YOUR_API_KEY"\n      }\n    }\n  }\n}',
           },
         ],
       },

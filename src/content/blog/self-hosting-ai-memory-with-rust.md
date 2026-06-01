@@ -153,15 +153,15 @@ The engine is configured entirely through environment variables:
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `TEMPORAL_MEMORY_HOST` / `ALETHEIA_HOST` | `0.0.0.0` | Bind address |
+| `TEMPORAL_MEMORY_HOST` / `TELLODB_HOST` | `0.0.0.0` | Bind address |
 | `PORT` / `TEMPORAL_MEMORY_PORT` | `3000` | Listen port |
-| `TEMPORAL_MEMORY_DATA_DIR` / `ALETHEIA_DATA_DIR` | `.` | Root data directory |
-| `TEMPORAL_MEMORY_API_KEY` / `ALETHEIA_API_KEY` | `XXX1111AAA` (debug) | API key for request auth |
+| `TEMPORAL_MEMORY_DATA_DIR` / `TELLODB_DATA_DIR` | `.` | Root data directory |
+| `TEMPORAL_MEMORY_API_KEY` / `TELLODB_API_KEY` | `XXX1111AAA` (debug) | API key for request auth |
 | `TEMPORAL_MEMORY_EMBEDDING_BACKEND` | `ort` | Embedding backend (`candle` or `ort`) |
 | `TEMPORAL_MEMORY_EMBEDDING_MODEL` | `BAAI/bge-small-en-v1.5` | HuggingFace model ID |
 | `TEMPORAL_MEMORY_DEVICE` | CPU | Device label (informational) |
-| `ALETHEIA_HNSW_CONNECTIVITY` | `16` | HNSW M parameter |
-| `ALETHEIA_HNSW_EF_SEARCH` | `64` | HNSW ef_search parameter |
+| `TELLODB_HNSW_CONNECTIVITY` | `16` | HNSW M parameter |
+| `TELLODB_HNSW_EF_SEARCH` | `64` | HNSW ef_search parameter |
 
 The engine also reads optional ranking config from `ranking_config.json` in the data directory.
 

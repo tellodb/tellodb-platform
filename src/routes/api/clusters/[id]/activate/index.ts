@@ -21,7 +21,7 @@ export const onPost: RequestHandler = async (event) => {
 
     // Verify the admin key to prevent unauthorized activations
     const adminKey = event.request.headers.get("x-admin-key");
-    const expectedKey = event.env.get("ALETHEIADB_ADMIN_KEY") || "82a2cd542b86763b5941fba04db9802928c53a27256fcccb64e12f414f69826a";
+    const expectedKey = event.env.get("TELLODB_ADMIN_KEY") || "82a2cd542b86763b5941fba04db9802928c53a27256fcccb64e12f414f69826a";
 
     if (adminKey !== expectedKey) {
       throw event.error(401, "Unauthorized - Invalid admin key");

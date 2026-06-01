@@ -1,11 +1,11 @@
 import { captureError } from "./sentry";
 
 export function getTellodbCoreUrl(): string {
-  return (import.meta.env.ALETHEIADB_URL || "http://localhost:3000").replace(/\/+$/, "");
+  return (import.meta.env.TELLODB_URL || "http://localhost:3000").replace(/\/+$/, "");
 }
 
 export function getAdminKey(): string {
-  return import.meta.env.ALETHEIADB_ADMIN_KEY || "82a2cd542b86763b5941fba04db9802928c53a27256fcccb64e12f414f69826a";
+  return import.meta.env.TELLODB_ADMIN_KEY || "82a2cd542b86763b5941fba04db9802928c53a27256fcccb64e12f414f69826a";
 }
 
 export interface CoreClusterStats {
