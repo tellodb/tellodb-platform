@@ -16,3 +16,6 @@ pnpm-debug.log*
 
 coverage/
 *.tsbuildinfo
+
+# Supabase local dev temp files
+supabase/.temp/
