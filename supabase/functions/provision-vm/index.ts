@@ -311,7 +311,7 @@ sudo mkdir -p /usr/local/lib/tellodb
 cd /tmp
 # Try Supabase Storage first, then fallback URL
 curl -sSfL -o tellodb-engine \\
-  "https://fnovrnadrvimlvqwecgs.supabase.co/storage/v1/object/public/tellodb-binaries/${binaryName}" \\
+  "https://gxnmgtgizykhunreudhy.supabase.co/storage/v1/object/public/tellodb-binaries/${binaryName}" \\
   -H "User-Agent: tellodb-bootstrap" || \\
 curl -sSfL -o tellodb-engine "$BINARY_URL" || \\
 { echo "[4/6] Binary download failed - will build from source" | tee -a $LOG; BUILD_FROM_SOURCE=1; }
