@@ -1,6 +1,6 @@
 export const SITE_NAME = "TelloDB";
 export const SITE_ORIGIN = "https://tellodb.com";
-export const DEFAULT_SOCIAL_IMAGE = "/screen.png";
+export const DEFAULT_SOCIAL_IMAGE = "/og-image.png";
 export const DEFAULT_SOCIAL_IMAGE_ALT =
   "TelloDB dashboard and marketing experience";
 
