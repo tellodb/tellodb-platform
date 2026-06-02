@@ -92,9 +92,8 @@ export async function signupUser(
     }
 
     return {
-      ok: false,
+      ok: true,
       message: "Account created! Check your email (and spam) for a confirmation link before logging in."
-        + " To disable this, go to Supabase Dashboard → Authentication → Settings → disable 'Enable email confirmations'."
     };
   } catch (e: any) {
     captureError(e, { action: "signupUser", email });
