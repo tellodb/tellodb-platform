@@ -8,6 +8,7 @@ import { FlowbiteProvider, FlowbiteProviderHeader } from "flowbite-qwik";
 
 import { RouterHead } from "./components/router-head/router-head";
 import { commonHeadLinks, commonHeadScripts } from "./constants/theme";
+import { NavigationProgress } from "./components/NavigationProgress";
 import { initPostHog } from "./lib/posthog";
 import "./global.css";
 
@@ -81,6 +82,7 @@ export default component$(() => {
       <body lang="en">
         <FlowbiteProvider toastPosition="top-right" theme="purple">
           <RouterOutlet />
+          <NavigationProgress />
         </FlowbiteProvider>
       </body>
     </QwikCityProvider>
