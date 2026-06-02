@@ -26,12 +26,12 @@ export const Header = component$((props: HeaderProps) => {
               mobileOpen.value = false;
             }}
           >
-            <div class="flex h-8 w-8 items-center justify-center">
+            <div class="flex h-10 w-10 items-center justify-center">
               <img
                 src="/icon-64.png"
                 alt=""
-                width={20}
-                height={20}
+                width={40}
+                height={40}
                 loading="eager"
                 decoding="async"
                 class="object-contain"

@@ -1095,8 +1095,8 @@ export default component$(() => {
                 <span class="text-gradient-accent italic">Simulation.</span>
               </h3>
               <p class="mt-6 mx-auto max-w-2xl text-base text-tertiary leading-relaxed">
-                Experience Tellodb's real-time ingestion and recall loop.
-                Store a fact, then retrieve it across model contexts.
+                Experience Tellodb's real-time ingestion and recall loop. Store
+                a fact, then retrieve it across model contexts.
               </p>
             </div>
 
@@ -1566,9 +1566,9 @@ export default component$(() => {
                   <span class="text-gradient-accent italic">truth.</span>
                 </h3>
                 <p class="mb-8 text-base text-tertiary leading-relaxed">
-                  Raw chat logs are noise. Tellodb acts as a cognitive
-                  filter, distilling human rambling into a clean, queryable
-                  lattice of facts.
+                  Raw chat logs are noise. Tellodb acts as a cognitive filter,
+                  distilling human rambling into a clean, queryable lattice of
+                  facts.
                 </p>
 
                 <div class="space-y-6">
@@ -2353,7 +2353,7 @@ export default component$(() => {
         <div class="container mx-auto grid grid-cols-1 gap-12 md:grid-cols-5">
           <div class="col-span-1 md:col-span-2">
             <span class="mb-4 block text-xl font-extrabold uppercase tracking-tighter text-on-surface font-headline">
-              TELLODB
+              TelloDB
             </span>
             <p class="mb-6 max-w-sm text-xs md:text-sm leading-relaxed text-tertiary">
               The persistent memory layer for advanced AI agents. Built for
@@ -2461,8 +2461,7 @@ export default component$(() => {
         </div>
 
         <div class="container mx-auto mt-16 border-t border-white/5 pt-8 text-center font-mono text-[9px] uppercase tracking-widest text-tertiary/75">
-          © 2026 Tellodb Systems. All human memories preserved. Truth
-          disclosed.
+          © 2026 Tellodb Systems. All human memories preserved. Truth disclosed.
         </div>
       </footer>
     </div>
