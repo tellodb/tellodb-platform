@@ -57,15 +57,15 @@ export const detailedDocsPages: DocsPage[] = [
   {
     slug: "install",
     eyebrow: "Setup",
-    title: "Install Tellodb",
-    lead: "Set up the Tellodb engine locally with predictable binaries, model downloads, and SDK wiring.",
+    title: "Install TelloDB",
+    lead: "Set up the TelloDB engine locally with predictable binaries, model downloads, and SDK wiring.",
     description:
-      "Installation guide for Tellodb including prerequisites, build flow, and first health check.",
+      "Installation guide for TelloDB including prerequisites, build flow, and first health check.",
     sections: [
       {
         heading: "Prerequisites",
         paragraphs: [
-          "Tellodb is built as a Rust service with optional SDK clients. For a smooth start, install Rust stable and keep at least 4GB free disk for model and index artifacts.",
+          "TelloDB is built as a Rust service with optional SDK clients. For a smooth start, install Rust stable and keep at least 4GB free disk for model and index artifacts.",
           "Use a dedicated workspace directory for cache and data files so benchmarks and local testing can be reset without touching your main development environment.",
         ],
         bullets: [
@@ -121,12 +121,12 @@ export TEMPORAL_MEMORY_DATA_DIR=./.tm-data
     title: "Core Concepts",
     lead: "Understand the core memory concepts before tuning retrieval or shipping integrations.",
     description:
-      "Conceptual overview of Tellodb memory, companion memories, and hybrid retrieval behavior.",
+      "Conceptual overview of TelloDB memory, companion memories, and hybrid retrieval behavior.",
     sections: [
       {
         heading: "Memory is multi-representation",
         paragraphs: [
-          "Tellodb stores a memory event in multiple forms: raw text, embedding vector, lexical index terms, and graph relationships. This is why exact terms and paraphrases can both be recovered without scanning full transcripts.",
+          "TelloDB stores a memory event in multiple forms: raw text, embedding vector, lexical index terms, and graph relationships. This is why exact terms and paraphrases can both be recovered without scanning full transcripts.",
           "The engine is not just an ANN index. It is a retrieval system that fuses multiple signals into one ranked result list.",
         ],
       },
@@ -155,9 +155,9 @@ export TEMPORAL_MEMORY_DATA_DIR=./.tm-data
     slug: "architecture",
     eyebrow: "Architecture",
     title: "System Architecture",
-    lead: "Tellodb combines temporal storage, vector retrieval, lexical scoring, and graph lineage in one service.",
+    lead: "TelloDB combines temporal storage, vector retrieval, lexical scoring, and graph lineage in one service.",
     description:
-      "Detailed architecture of Tellodb components and request flow.",
+      "Detailed architecture of TelloDB components and request flow.",
     sections: [
       {
         heading: "Runtime components",
@@ -341,7 +341,7 @@ user-42::session-7::1000003   # summary companion`,
     slug: "ingestion-pipeline",
     eyebrow: "Pipeline",
     title: "Ingestion Pipeline",
-    lead: "Ingestion transforms raw events into durable, queryable Tellodb memory with deduplication and lineage.",
+    lead: "Ingestion transforms raw events into durable, queryable TelloDB memory with deduplication and lineage.",
     description:
       "Step-by-step ingest pipeline including embedding, dedup, indexing, and graph updates.",
     sections: [
@@ -386,7 +386,7 @@ user-42::session-7::1000003   # summary companion`,
     eyebrow: "Retrieval",
     title: "Vector Index",
     lead: "The vector index provides fast semantic candidate retrieval for paraphrase-heavy queries.",
-    description: "How Tellodb uses vector embeddings and HNSW ANN search.",
+    description: "How TelloDB uses vector embeddings and HNSW ANN search.",
     sections: [
       {
         heading: "Embedding path",
@@ -470,7 +470,7 @@ user-42::session-7::1000003   # summary companion`,
     eyebrow: "Precision",
     title: "Cross-Encoder Reranking",
     lead: "Reranking improves top-k relevance by scoring query and passage jointly.",
-    description: "How and when to apply cross-encoder reranking in Tellodb.",
+    description: "How and when to apply cross-encoder reranking in TelloDB.",
     sections: [
       {
         heading: "Where reranking fits",
@@ -509,13 +509,13 @@ user-42::session-7::1000003   # summary companion`,
     slug: "time-ranking",
     eyebrow: "Temporal",
     title: "Time-Aware Ranking",
-    lead: "Tellodb ranks by relevance and freshness so outdated context does not dominate.",
+    lead: "TelloDB ranks by relevance and freshness so outdated context does not dominate.",
     description: "How TTL and decay are applied during query ranking.",
     sections: [
       {
         heading: "Temporal scoring",
         paragraphs: [
-          "After retrieval and optional reranking, Tellodb applies temporal policy. Expired memories are filtered; surviving memories can be decayed based on age and kind.",
+          "After retrieval and optional reranking, TelloDB applies temporal policy. Expired memories are filtered; surviving memories can be decayed based on age and kind.",
           "This reduces stale recall while preserving long-lived facts and preferences.",
         ],
       },
@@ -549,7 +549,7 @@ if age > ttl(kind): drop`,
     title: "Fact Supersession",
     lead: "Fact supersession marks older conflicting facts as invalid so latest truth wins.",
     description:
-      "How Tellodb tracks and enforces fact supersession over time.",
+      "How TelloDB tracks and enforces fact supersession over time.",
     sections: [
       {
         heading: "Current fact slots",
@@ -588,7 +588,7 @@ t2: preferred_drink = tea      -> becomes current
     eyebrow: "API",
     title: "POST /ingest",
     lead: "Ingest stores one or more memory events and optionally emits companion memories.",
-    description: "API contract for ingesting memories into Tellodb.",
+    description: "API contract for ingesting memories into TelloDB.",
     sections: [
       {
         heading: "Request contract",
@@ -638,7 +638,7 @@ t2: preferred_drink = tea      -> becomes current
     eyebrow: "API",
     title: "POST /query/semantic",
     lead: "Semantic query retrieves memories by intent and meaning, then applies temporal policy.",
-    description: "API contract for semantic/hybrid query in Tellodb.",
+    description: "API contract for semantic/hybrid query in TelloDB.",
     sections: [
       {
         heading: "Request fields",
@@ -722,7 +722,7 @@ t2: preferred_drink = tea      -> becomes current
     title: "POST /memory/delete",
     lead: "Delete removes a memory from retrieval surfaces and records an audit trail for reconstruction.",
     description:
-      "Deletion and index repair behavior for Tellodb memory records.",
+      "Deletion and index repair behavior for TelloDB memory records.",
     sections: [
       {
         heading: "Delete contract",
@@ -764,12 +764,12 @@ t2: preferred_drink = tea      -> becomes current
     title: "Cognitive Extraction Pipeline",
     lead: "Transform raw episodic text into structured knowledge triples and verified entities.",
     description:
-      "Overview of Tellodb's neural entity extraction and autonomous relationship discovery.",
+      "Overview of TelloDB's neural entity extraction and autonomous relationship discovery.",
     sections: [
       {
         heading: "Neural Entity Extraction",
         paragraphs: [
-          "Tellodb integrates a local BERT-based model for Named Entity Recognition (NER). During ingestion, episodic text is scanned to identify core entities without requiring external LLM calls.",
+          "TelloDB integrates a local BERT-based model for Named Entity Recognition (NER). During ingestion, episodic text is scanned to identify core entities without requiring external LLM calls.",
           "Entities are classified into standard categories (Person, Organization, Location, Miscellaneous), allowing for precise scoping and relationship mapping.",
         ],
         bullets: [
@@ -789,7 +789,7 @@ t2: preferred_drink = tea      -> becomes current
       {
         heading: "Implicit Preference Detection",
         paragraphs: [
-          "Tellodb identifies sentiment and preference signals (love, hate, prefer, favorite) automatically. When detected, the memory is elevated to a `Preference` kind, exempting it from standard time-decay policies to ensure core user identity persists.",
+          "TelloDB identifies sentiment and preference signals (love, hate, prefer, favorite) automatically. When detected, the memory is elevated to a `Preference` kind, exempting it from standard time-decay policies to ensure core user identity persists.",
         ],
       },
     ],
@@ -800,12 +800,12 @@ t2: preferred_drink = tea      -> becomes current
     title: "The Metric Vault",
     lead: "Track and aggregate numeric truth with absolute deterministic precision.",
     description:
-      "How to use the Tellodb Analytics API for range-based sums and counts of extracted metrics.",
+      "How to use the TelloDB Analytics API for range-based sums and counts of extracted metrics.",
     sections: [
       {
         heading: "Deterministic Metric Extraction",
         paragraphs: [
-          "Beyond semantic recall, Tellodb uses deterministic regex extractors to identify numeric values during ingestion. These are stored in the Metric Vault—a specialized B-Tree index optimized for temporal range scans.",
+          "Beyond semantic recall, TelloDB uses deterministic regex extractors to identify numeric values during ingestion. These are stored in the Metric Vault—a specialized B-Tree index optimized for temporal range scans.",
         ],
         bullets: [
           "Currency ($50, 100 EUR): Track user spending habits.",
@@ -836,23 +836,23 @@ t2: preferred_drink = tea      -> becomes current
   {
     slug: "memory-proxy",
     eyebrow: "Ecosystem",
-    title: "The Tellodb Proxy (Coming Soon)",
+    title: "The TelloDB Proxy (Coming Soon)",
     lead: "An OpenAI-compatible gateway that automatically injects memory into your agent's system prompt.",
     description:
-      "Learn about the planned Tellodb Proxy for adding long-term memory to any application with zero code changes.",
+      "Learn about the planned TelloDB Proxy for adding long-term memory to any application with zero code changes.",
     sections: [
       {
         heading: "Overview",
         paragraphs: [
-          "The Tellodb Proxy (Memory Router) is a planned feature that will act as a middleware between your application and your LLM provider. It will intercept standard OpenAI-style chat completion requests, retrieve the most relevant memories for the specified user, and inject them into the system prompt before forwarding the request to the upstream model.",
-          "This will allow you to add Tellodb's persistent memory to any existing agent or application by simply changing the `base_url`. The feature is currently in development.",
+          "The TelloDB Proxy (Memory Router) is a planned feature that will act as a middleware between your application and your LLM provider. It will intercept standard OpenAI-style chat completion requests, retrieve the most relevant memories for the specified user, and inject them into the system prompt before forwarding the request to the upstream model.",
+          "This will allow you to add TelloDB's persistent memory to any existing agent or application by simply changing the `base_url`. The feature is currently in development.",
         ],
       },
       {
         heading: "How it works",
         steps: [
-          "Your app sends a request to `/v1/chat/completions` on the Tellodb engine.",
-          "Tellodb extracts the `user` field from the payload to identify the `entity_id`.",
+          "Your app sends a request to `/v1/chat/completions` on the TelloDB engine.",
+          "TelloDB extracts the `user` field from the payload to identify the `entity_id`.",
           "It performs a high-precision semantic lookup based on the latest user message.",
           "The system prompt is augmented with a structured `[TELLODB PERSISTENT MEMORY]` block.",
           "The augmented request is forwarded to OpenAI (or your configured provider).",
@@ -862,7 +862,7 @@ t2: preferred_drink = tea      -> becomes current
       {
         heading: "Usage Example",
         paragraphs: [
-          "To use the proxy, simply point your OpenAI client to your Tellodb instance. The `user` parameter is mapped to Tellodb's `entity_id`.",
+          "To use the proxy, simply point your OpenAI client to your TelloDB instance. The `user` parameter is mapped to TelloDB's `entity_id`.",
         ],
         codeBlocks: [
           {
@@ -887,12 +887,12 @@ response = client.chat.completions.create(
       {
         heading: "Configuration",
         paragraphs: [
-          "The proxy behavior can be tuned using the following environment variables on the Tellodb engine:",
+          "The proxy behavior can be tuned using the following environment variables on the TelloDB engine:",
         ],
         bullets: [
           "OPENAI_API_KEY: Your upstream provider key.",
           "TELLODB_PROXY_TARGET_URL: The upstream endpoint (defaults to OpenAI).",
-          "TELLODB_PORT: The local port Tellodb is running on (for loopback lookups).",
+          "TELLODB_PORT: The local port TelloDB is running on (for loopback lookups).",
         ],
       },
     ],
@@ -1014,12 +1014,12 @@ client.ingest_many(items)`,
     title: "Deployment Guide",
     lead: "Production deployment should preserve durability first, then optimize for latency and throughput.",
     description:
-      "Practical deployment recommendations for Tellodb in production.",
+      "Practical deployment recommendations for TelloDB in production.",
     sections: [
       {
         heading: "Deployment topology",
         paragraphs: [
-          "A common topology runs Tellodb as a dedicated memory service behind an internal API gateway. Keep data directories on persistent volumes with regular backups.",
+          "A common topology runs TelloDB as a dedicated memory service behind an internal API gateway. Keep data directories on persistent volumes with regular backups.",
           "Avoid ephemeral disks for primary data unless you have robust replication and recovery strategy.",
         ],
       },
@@ -1054,7 +1054,7 @@ client.ingest_many(items)`,
     title: "Observability",
     lead: "Track recall quality and service health together; latency alone is not enough for memory systems.",
     description:
-      "Metrics, logs, traces, and quality indicators for Tellodb.",
+      "Metrics, logs, traces, and quality indicators for TelloDB.",
     sections: [
       {
         heading: "Metrics that matter",
@@ -1106,7 +1106,7 @@ client.ingest_many(items)`,
     title: "Benchmarking and Evaluation",
     lead: "Benchmark memory quality with repeatable datasets, fixed configurations, and a clear split between preliminary signal and publishable scorecards.",
     description:
-      "How to benchmark Tellodb retrieval quality and latency reliably.",
+      "How to benchmark TelloDB retrieval quality and latency reliably.",
     sections: [
       {
         heading: "Current benchmark status",
@@ -1305,7 +1305,7 @@ reset first: true`,
         heading:
           "What still needs to happen before we call benchmarking complete",
         paragraphs: [
-          "A proper benchmark page for Tellodb should not stop at one preliminary retrieval run. We still need a full matrix across datasets, retrieval settings, optional reranking, answer-generation layers, and judge-model evaluation so the results are defensible outside the repo.",
+          "A proper benchmark page for TelloDB should not stop at one preliminary retrieval run. We still need a full matrix across datasets, retrieval settings, optional reranking, answer-generation layers, and judge-model evaluation so the results are defensible outside the repo.",
           "In practice, that means LoCoMo is only the first published checkpoint. LongMemEval, ablations, and answer-quality scoring are the next layer.",
         ],
         steps: [
@@ -1373,22 +1373,22 @@ reset first: true`,
   {
     slug: "core",
     eyebrow: "Product",
-    title: "Tellodb Core Engine",
+    title: "TelloDB Core Engine",
     lead: "The Rust-powered temporal memory engine that runs anywhere. Self-host, embed, or integrate.",
     description:
-      "Tellodb Core is the open-source, single-binary memory engine for AI agents. Hybrid vector + BM25 search, knowledge graphs, deterministic analytics, and fact supersession.",
+      "TelloDB Core is the open-source, single-binary memory engine for AI agents. Hybrid vector + BM25 search, knowledge graphs, deterministic analytics, and fact supersession.",
     sections: [
       {
-        heading: "What is Tellodb Core?",
+        heading: "What is TelloDB Core?",
         paragraphs: [
-          "Tellodb Core is a standalone Rust binary that provides persistent, temporal, multi-model memory for AI agents. It is designed to run on any machine — from a developer laptop to a production server — without requiring a cloud account, a database cluster, or an internet connection.",
+          "TelloDB Core is a standalone Rust binary that provides persistent, temporal, multi-model memory for AI agents. It is designed to run on any machine — from a developer laptop to a production server — without requiring a cloud account, a database cluster, or an internet connection.",
           "The engine combines four storage substrates under one roof: a vector index (HNSW via usearch), a full-text search index (BM25F on redb), a typed knowledge graph (RDF-style adjacency lists on redb), and a deterministic analytics vault for numeric metric extraction. All four are written into the same binary with zero external dependencies at runtime.",
         ],
       },
       {
         heading: "How It Works",
         paragraphs: [
-          "Think of Tellodb Core as a database purpose-built for agent memory. You send it observations (facts, conversations, events) via REST endpoints, and it indexes them across all four substrates simultaneously. When you query, it performs hybrid retrieval — fusing vector similarity scores with BM25F lexical scores using Reciprocal Rank Fusion — and returns temporally-ordered, fact-consistent results.",
+          "Think of TelloDB Core as a database purpose-built for agent memory. You send it observations (facts, conversations, events) via REST endpoints, and it indexes them across all four substrates simultaneously. When you query, it performs hybrid retrieval — fusing vector similarity scores with BM25F lexical scores using Reciprocal Rank Fusion — and returns temporally-ordered, fact-consistent results.",
           "The engine tracks time natively. Every memory carries a timestamp, and the retrieval pipeline uses temporal recency scoring to prefer recent memories while still surfacing relevant historical facts. Facts can be superseded (new truth replaces old truth), creating a continuously updated world model.",
         ],
       },
@@ -1456,8 +1456,8 @@ reset first: true`,
         bullets: [
           "Self-hosted binary: Download, run. No cloud, no lock-in. Works on macOS, Linux, Windows.",
           "Docker: Official container images with pre-baked models on GitHub Container Registry.",
-          "Embedded library: Link Tellodb as a Rust crate in your own application (coming soon).",
-          "Platform-managed: Deploy on the Tellodb Platform for one-click provisioning, billing, and team management.",
+          "Embedded library: Link TelloDB as a Rust crate in your own application (coming soon).",
+          "Platform-managed: Deploy on the TelloDB Platform for one-click provisioning, billing, and team management.",
         ],
       },
     ],
@@ -1465,15 +1465,15 @@ reset first: true`,
   {
     slug: "platform",
     eyebrow: "Product",
-    title: "Tellodb Platform",
-    lead: "The managed SaaS layer on top of Tellodb Core. Deploy clusters, manage teams, track usage, and never touch infrastructure.",
+    title: "TelloDB Platform",
+    lead: "The managed SaaS layer on top of TelloDB Core. Deploy clusters, manage teams, track usage, and never touch infrastructure.",
     description:
-      "The Tellodb Platform provides a full web console, Stripe billing, team management, graph visualization, and analytics on top of the core memory engine.",
+      "The TelloDB Platform provides a full web console, Stripe billing, team management, graph visualization, and analytics on top of the core memory engine.",
     sections: [
       {
         heading: "What is the Platform?",
         paragraphs: [
-          "The Tellodb Platform is a managed cloud service built on top of the open-source Tellodb Core engine. While the core engine runs anywhere as a standalone binary, the Platform wraps it with authentication, billing, team collaboration, and a rich web dashboard — so you can focus on building agents, not managing servers.",
+          "The TelloDB Platform is a managed cloud service built on top of the open-source TelloDB Core engine. While the core engine runs anywhere as a standalone binary, the Platform wraps it with authentication, billing, team collaboration, and a rich web dashboard — so you can focus on building agents, not managing servers.",
         ],
       },
       {
@@ -1549,8 +1549,8 @@ reset first: true`,
     slug: "glossary",
     eyebrow: "Reference",
     title: "Glossary",
-    lead: "A quick reference for recurring Tellodb terms in docs, APIs, and benchmarking.",
-    description: "Glossary of Tellodb and retrieval terminology.",
+    lead: "A quick reference for recurring TelloDB terms in docs, APIs, and benchmarking.",
+    description: "Glossary of TelloDB and retrieval terminology.",
     sections: [
       {
         heading: "Core terms",
@@ -1592,8 +1592,8 @@ reset first: true`,
       {
         heading: "What are Context Templates?",
         paragraphs: [
-          "Context templates are configurable prompt blocks that define how Tellodb memories are formatted when sent to your LLM. Instead of receiving raw JSON, your agent gets a clean, readable paragraph or structured text block — tailored to your exact use case.",
-          "Templates use simple markers like %{facts limit=5} to inject live data from the engine. When a template is rendered, Tellodb queries the relevant memories and replaces each marker with the actual content.",
+          "Context templates are configurable prompt blocks that define how TelloDB memories are formatted when sent to your LLM. Instead of receiving raw JSON, your agent gets a clean, readable paragraph or structured text block — tailored to your exact use case.",
+          "Templates use simple markers like %{facts limit=5} to inject live data from the engine. When a template is rendered, TelloDB queries the relevant memories and replaces each marker with the actual content.",
         ],
       },
       {
@@ -1663,14 +1663,14 @@ reset first: true`,
     slug: "rate-limiting",
     eyebrow: "Platform",
     title: "Rate Limits & Quotas",
-    lead: "Tellodb uses per-cluster rate limits to ensure fair resource allocation across tenants. Limits scale with your tier.",
+    lead: "TelloDB uses per-cluster rate limits to ensure fair resource allocation across tenants. Limits scale with your tier.",
     description:
-      "Rate limits for the Tellodb Platform API. Learn about RPM limits, daily quotas, retry-after headers, and how limits scale with your plan tier.",
+      "Rate limits for the TelloDB Platform API. Learn about RPM limits, daily quotas, retry-after headers, and how limits scale with your plan tier.",
     sections: [
       {
         heading: "How Rate Limits Work",
         paragraphs: [
-          "Every API request to the Tellodb platform is counted against a rate limit for the originating cluster. Limits are enforced in two dimensions: requests per minute (RPM) and requests per day. When a limit is exceeded, the API returns HTTP 429 with a Retry-After header.",
+          "Every API request to the TelloDB platform is counted against a rate limit for the originating cluster. Limits are enforced in two dimensions: requests per minute (RPM) and requests per day. When a limit is exceeded, the API returns HTTP 429 with a Retry-After header.",
           "Rate limits reset at the end of each window (1 minute for RPM, midnight UTC for daily). 429 responses include X-RateLimit-Remaining and X-RateLimit-Reset headers so your application can adapt.",
         ],
         stats: [
@@ -1746,14 +1746,14 @@ reset first: true`,
     slug: "connectors",
     eyebrow: "Platform",
     title: "Data Connectors",
-    lead: "Auto-ingest data from Slack, GitHub, Notion, and more. Connect once, and Tellodb continuously syncs new content as it arrives.",
+    lead: "Auto-ingest data from Slack, GitHub, Notion, and more. Connect once, and TelloDB continuously syncs new content as it arrives.",
     description:
-      "Connect external services to your Tellodb cluster for automatic data ingestion. Supports Slack, GitHub, Notion, Gmail, and Google Drive.",
+      "Connect external services to your TelloDB cluster for automatic data ingestion. Supports Slack, GitHub, Notion, Gmail, and Google Drive.",
     sections: [
       {
         heading: "What are Connectors?",
         paragraphs: [
-          "Connectors automatically pull data from external services into your Tellodb cluster. Once configured, they run on a schedule (typically every 15 minutes) and ingest new content as conversation memories, fact memories, or decision records depending on the source.",
+          "Connectors automatically pull data from external services into your TelloDB cluster. Once configured, they run on a schedule (typically every 15 minutes) and ingest new content as conversation memories, fact memories, or decision records depending on the source.",
           "Each connector requires OAuth authorization or an API token. Credentials are encrypted at rest in our database. You can revoke a connector at any time from the Connectors page.",
         ],
       },
@@ -1796,7 +1796,7 @@ reset first: true`,
           "Navigate to your cluster → Connectors tab.",
           "Select the service you want to connect (e.g., Slack).",
           "Click 'Connect' — you'll be redirected to the service's OAuth authorization page.",
-          "Authorize Tellodb to access the required scopes (read-only where possible).",
+          "Authorize TelloDB to access the required scopes (read-only where possible).",
           "You'll be redirected back to the Connectors page showing your new connector as 'Active'.",
           "The first sync starts automatically within 15 minutes. Click 'Sync Now' for an immediate sync.",
           "Monitor sync status, last sync time, and item count from the Connectors page.",
@@ -1815,15 +1815,15 @@ reset first: true`,
     slug: "mcp-server",
     eyebrow: "Platform",
     title: "MCP Server (Model Context Protocol)",
-    lead: "Connect Tellodb to any MCP-compatible client — Claude Desktop, Cursor, Windsurf, and more — with zero configuration.",
+    lead: "Connect TelloDB to any MCP-compatible client — Claude Desktop, Cursor, Windsurf, and more — with zero configuration.",
     description:
-      "Tellodb exposes a Model Context Protocol (MCP) server for integration with Claude Desktop, Cursor, and other MCP clients. Search memories, store facts, and explore graphs from your AI tools.",
+      "TelloDB exposes a Model Context Protocol (MCP) server for integration with Claude Desktop, Cursor, and other MCP clients. Search memories, store facts, and explore graphs from your AI tools.",
     sections: [
       {
         heading: "What is MCP?",
         paragraphs: [
-          "The Model Context Protocol (MCP) is an open standard for connecting AI assistants with external tools and data sources. Tellodb exposes an MCP server that lets any MCP-compatible client — including Claude Desktop, Cursor, and Windsurf — query memories, store facts, and explore knowledge graphs directly.",
-          "By supporting MCP, Tellodb works with every MCP client out of the box. No custom SDKs or integration code needed.",
+          "The Model Context Protocol (MCP) is an open standard for connecting AI assistants with external tools and data sources. TelloDB exposes an MCP server that lets any MCP-compatible client — including Claude Desktop, Cursor, and Windsurf — query memories, store facts, and explore knowledge graphs directly.",
+          "By supporting MCP, TelloDB works with every MCP client out of the box. No custom SDKs or integration code needed.",
         ],
       },
       {
@@ -1858,7 +1858,7 @@ reset first: true`,
         steps: [
           "Open Claude Desktop → Settings → Developer → Edit Config.",
           "Add the following entry to your claude_desktop_config.json:",
-          "Restart Claude Desktop. You should see the Tellodb tools in the toolbox.",
+          "Restart Claude Desktop. You should see the TelloDB tools in the toolbox.",
           'Ask Claude to "search my memories" or "store that Alice likes hiking".',
         ],
         codeBlocks: [
@@ -1885,14 +1885,14 @@ reset first: true`,
     slug: "trust",
     eyebrow: "Platform",
     title: "Trust & Security",
-    lead: "Tellodb is built with security and privacy as first principles. SOC 2 compliant, GDPR ready, and fully auditable.",
+    lead: "TelloDB is built with security and privacy as first principles. SOC 2 compliant, GDPR ready, and fully auditable.",
     description:
-      "Security, privacy, and compliance information for the Tellodb platform. Encryption, infrastructure, data protection, and certifications.",
+      "Security, privacy, and compliance information for the TelloDB platform. Encryption, infrastructure, data protection, and certifications.",
     sections: [
       {
         heading: "Security by Design",
         paragraphs: [
-          "Tellodb is built from the ground up with security as a core requirement. The core engine is a single Rust binary with zero runtime dependencies — no npm, no pip, no system libraries. This dramatically reduces the attack surface compared to languages like Python or Node.js.",
+          "TelloDB is built from the ground up with security as a core requirement. The core engine is a single Rust binary with zero runtime dependencies — no npm, no pip, no system libraries. This dramatically reduces the attack surface compared to languages like Python or Node.js.",
           "All data is encrypted at rest (AES-256) and in transit (TLS 1.3). API keys are stored as SHA-256 hashes and compared using constant-time comparison to prevent timing side-channel attacks.",
         ],
         stats: [
@@ -1963,7 +1963,7 @@ reset first: true`,
       {
         heading: "Trust Center",
         paragraphs: [
-          "Visit the Tellodb Trust Center at /platform/trust for the full security overview, including encryption details, data processing agreements, breach notification procedures, and infrastructure architecture diagrams.",
+          "Visit the TelloDB Trust Center at /platform/trust for the full security overview, including encryption details, data processing agreements, breach notification procedures, and infrastructure architecture diagrams.",
           "For urgent security matters: security@tellodb.com. For compliance documentation: trust@tellodb.com.",
         ],
       },
@@ -1973,14 +1973,14 @@ reset first: true`,
     slug: "self-hosting",
     eyebrow: "Operations",
     title: "Self-Hosting & BYOC",
-    lead: "Run Tellodb in your own infrastructure. One binary, zero dependencies, full control. Or deploy in your cloud with our BYOC program.",
+    lead: "Run TelloDB in your own infrastructure. One binary, zero dependencies, full control. Or deploy in your cloud with our BYOC program.",
     description:
-      "Self-host Tellodb Core as a single binary, Docker container, or deploy via BYOC in your AWS/GCP/Azure account.",
+      "Self-host TelloDB Core as a single binary, Docker container, or deploy via BYOC in your AWS/GCP/Azure account.",
     sections: [
       {
         heading: "Self-Hosted Core Engine",
         paragraphs: [
-          "The Tellodb Core engine is a single Rust binary — download, run. No Docker required. No database to configure. Works on macOS, Linux, and Windows. Everything needed for agent memory is inside the binary: HNSW vector index, BM25F full-text search, typed knowledge graph, temporal KV store, and deterministic analytics vault.",
+          "The TelloDB Core engine is a single Rust binary — download, run. No Docker required. No database to configure. Works on macOS, Linux, and Windows. Everything needed for agent memory is inside the binary: HNSW vector index, BM25F full-text search, typed knowledge graph, temporal KV store, and deterministic analytics vault.",
           "Embeddings are handled locally via Candle (CPU/GPU) or ONNX Runtime. No external embedding API is needed. The engine works completely air-gapped.",
         ],
         codeBlocks: [
@@ -2035,7 +2035,7 @@ reset first: true`,
       {
         heading: "Enterprise BYOC",
         paragraphs: [
-          "For organizations requiring dedicated infrastructure with full data sovereignty, we offer a Bring Your Own Cloud (BYOC) program. You provide the cloud account (AWS, GCP, or Azure); we provide Terraform modules that provision the Tellodb Core instance in your VPC. The management plane only receives health metrics — your data never leaves your infrastructure.",
+          "For organizations requiring dedicated infrastructure with full data sovereignty, we offer a Bring Your Own Cloud (BYOC) program. You provide the cloud account (AWS, GCP, or Azure); we provide Terraform modules that provision the TelloDB Core instance in your VPC. The management plane only receives health metrics — your data never leaves your infrastructure.",
           "BYOC includes: dedicated single-tenant instance, customer-managed encryption keys (CMEK), custom networking (VPC, PrivateLink), 99.95% uptime SLA, and priority support.",
           "Contact enterprise@tellodb.com for a BYOC assessment and pricing.",
         ],

@@ -5,15 +5,15 @@ export interface PublicRepository {
 
 export const publicRepositoryLinks: PublicRepository[] = [
   {
-    label: "Tellodb Platform",
+    label: "TelloDB Platform",
     href: "https://github.com/SharjeelAbbas014/tellodb-platform",
   },
   {
-    label: "Tellodb JS Client",
+    label: "TelloDB JS Client",
     href: "https://github.com/SharjeelAbbas014/tellodb-js-client",
   },
   {
-    label: "Tellodb Python Client",
+    label: "TelloDB Python Client",
     href: "https://github.com/SharjeelAbbas014/tellodb-python-client",
   },
   {
@@ -35,4 +35,4 @@ export const publicRepositoryLinks: PublicRepository[] = [
 ];
 
 export const privateRepositoryNote =
-  "Core engine repository is private: Tellodb";
+  "Core engine repository is private: TelloDB";

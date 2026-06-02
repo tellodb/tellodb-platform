@@ -1,8 +1,8 @@
-export const SITE_NAME = "Tellodb";
+export const SITE_NAME = "TelloDB";
 export const SITE_ORIGIN = "https://tellodb.com";
 export const DEFAULT_SOCIAL_IMAGE = "/screen.png";
 export const DEFAULT_SOCIAL_IMAGE_ALT =
-  "Tellodb dashboard and marketing experience";
+  "TelloDB dashboard and marketing experience";
 
 function normalizePath(pathname: string): string {
   if (!pathname || pathname === "/") {

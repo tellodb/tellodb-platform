@@ -16,7 +16,7 @@ export default component$(() => {
   return (
     <div class="blog-index">
       <section class="blog-hero">
-        <h1 class="blog-hero-title">Tellodb Blog</h1>
+        <h1 class="blog-hero-title">TelloDB Blog</h1>
         <p class="blog-hero-lead">
           Writing for high-intent searches around temporal memory, hybrid
           retrieval, and infrastructure for agents that need continuity over
@@ -116,7 +116,7 @@ export default component$(() => {
 });
 
 export const head = buildSeoHead({
-  title: "Blog | Tellodb",
+  title: "Blog | TelloDB",
   description:
     "Insights on temporal memory, hybrid retrieval, evaluation, and infrastructure for AI agents that need continuity.",
   pathname: "/blog",

@@ -25,7 +25,7 @@ const labels = [
 ];
 const datasets = [
   {
-    name: "Tellodb",
+    name: "TelloDB",
     color: "bg-primary",
     values: [90.5, 98.0, 88.3, 95.2, 96.1, 74.8],
   },
@@ -63,7 +63,7 @@ export default component$(() => {
             Public Benchmarks
           </h1>
           <p class="text-muted text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
-            Transparent, reproducible evaluation of Tellodb against industry leaders on standard agent memory benchmarks.
+             Transparent, reproducible evaluation of TelloDB against industry leaders on standard agent memory benchmarks.
           </p>
         </header>
 
@@ -124,7 +124,7 @@ export default component$(() => {
               </thead>
               <tbody class="divide-y divide-outline-variant/5">
                 {datasets.map((ds) => {
-                  const isTellodb = ds.name === "Tellodb";
+                  const isTellodb = ds.name === "TelloDB";
                   return (
                     <tr 
                       key={ds.name} 
@@ -160,9 +160,9 @@ export default component$(() => {
           </div>
           <div class="space-y-6">
             {datasets.map((ds) => {
-              const isTellodb = ds.name === "Tellodb";
+              const isTellodb = ds.name === "TelloDB";
               // Custom gradient color mapping for progress bars
-              const gradientClass = ds.name === "Tellodb" 
+              const gradientClass = ds.name === "TelloDB" 
                 ? "bg-gradient-to-r from-[#8083ff] to-[#9b9cff] shadow-[0_0_12px_rgba(155,156,255,0.3)]"
                 : ds.name === "HydraDB"
                 ? "bg-gradient-to-r from-orange-600 to-amber-400"
@@ -268,9 +268,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Benchmarks | TELLODB",
+  title: "Benchmarks | TelloDB",
   description:
-    "Tellodb benchmark results against Mem0, Zep, and HydraDB on LongMemEval-S. See how our memory engine performs on temporal reasoning and retrieval.",
+    "TelloDB benchmark results against Mem0, Zep, and HydraDB on LongMemEval-S. See how our memory engine performs on temporal reasoning and retrieval.",
   pathname: "/platform/benchmarks",
   keywords: [
     "AI memory benchmarks",

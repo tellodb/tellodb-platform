@@ -28,7 +28,7 @@ export function getProvisioningSteps(
     },
     {
       elapsed: 38,
-      msg: `Bootstrapping VM image & downloading Tellodb engine binary...`,
+      msg: `Bootstrapping VM image & downloading TelloDB engine binary...`,
     },
     {
       elapsed: 48,

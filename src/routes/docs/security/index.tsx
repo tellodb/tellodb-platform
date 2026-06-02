@@ -8,15 +8,15 @@ export default component$(() => {
       <div class="eyebrow">Security & Trust</div>
       <h1>Building Trusted Long-Term Memory</h1>
       <p class="doc-lead">
-        Tellodb is strongest when security and privacy are treated as foundational elements of the system, not afterthoughts. Here's how we protect the core truth of your users.
+        TelloDB is strongest when security and privacy are treated as foundational elements of the system, not afterthoughts. Here's how we protect the core truth of your users.
       </p>
 
       <h2>Our Hosted Security Guidance</h2>
       <p>
-        Building a trusted AI agent means ensuring that memory is only accessible to the entity that owns it. Tellodb's architecture enforces strict boundaries between tenants and sessions.
+        Building a trusted AI agent means ensuring that memory is only accessible to the entity that owns it. TelloDB's architecture enforces strict boundaries between tenants and sessions.
       </p>
       <ul>
-        <li><strong>Strict Scope Enforcement:</strong> We never trust payload scope alone. Tellodb applies tenant and project claims before any retrieval logic begins, preventing data leaks.</li>
+        <li><strong>Strict Scope Enforcement:</strong> We never trust payload scope alone. TelloDB applies tenant and project claims before any retrieval logic begins, preventing data leaks.</li>
         <li><strong>Immutable Audit Logs:</strong> Every memory operation—ingestion, query, and deletion—is logged. This creates an unchangeable audit trail for your peace of mind.</li>
         <li><strong>End-to-End Traceability:</strong> All requests are assigned a unique ID, making it simple to trace the origin and lifecycle of a specific memory chunk.</li>
       </ul>
@@ -32,7 +32,7 @@ export default component$(() => {
 
       <h2>The Platform Story</h2>
       <p>
-        Tellodb's platform is the central hub for your public trust story. We provide all the tools you need to manage your memory security effortlessly:
+        TelloDB's platform is the central hub for your public trust story. We provide all the tools you need to manage your memory security effortlessly:
       </p>
       <ul>
         <li><strong>Secure Onboarding:</strong> Seamless sign-up and login flows that prioritize user protection.</li>
@@ -41,15 +41,15 @@ export default component$(() => {
       </ul>
       
       <p>
-        Your user's memories are their most personal data. At Tellodb, we build the walls to keep them safe.
+        Your user's memories are their most personal data. At TelloDB, we build the walls to keep them safe.
       </p>
     </>
   );
 });
 
 export const head = createHead(
-  "Security Model for AI Memory | Tellodb",
-  "Explore Tellodb's security model, from strict tenant scoping to signed Rust binaries and audit logs for AI agent memory.",
+  "Security Model for AI Memory | TelloDB",
+  "Explore TelloDB's security model, from strict tenant scoping to signed Rust binaries and audit logs for AI agent memory.",
   "/docs/security",
   [
     "AI memory security",

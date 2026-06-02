@@ -500,7 +500,7 @@ export default component$(() => {
               </h3>
               <p class="text-xs text-tertiary mb-6 leading-relaxed">
                 The virtual machine instance is being allocated in Azure. Once
-                the VM boots up and starts the Tellodb engine, it must send
+                the VM boots up and starts the TelloDB engine, it must send
                 an activation signal to our API gateway to transition this
                 cluster to active.
               </p>
@@ -1249,8 +1249,8 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Cluster Detail | TELLODB",
-  description: "Manage your Tellodb cluster.",
+  title: "Cluster Detail | TelloDB",
+  description: "Manage your TelloDB cluster.",
   pathname: "/platform/clusters/[id]",
   noindex: true,
 });

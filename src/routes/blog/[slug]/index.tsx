@@ -47,7 +47,7 @@ export default component$(() => {
   return (
     <div class="blog-post-view">
       <header class="blog-post-header">
-        <div class="eyebrow blog-eyebrow">Tellodb Blog</div>
+        <div class="eyebrow blog-eyebrow">TelloDB Blog</div>
         <div class="blog-post-meta">
           <span>{formatBlogDate(post.value.publishedAt)}</span>
           <span>{post.value.readingTimeMinutes} min read</span>
@@ -97,7 +97,7 @@ export const head = ({ resolveValue }: DocumentHeadProps) => {
 
   if (!post) {
     return buildSeoHead({
-      title: "Blog Post Not Found | Tellodb",
+      title: "Blog Post Not Found | TelloDB",
       description: "The requested blog article could not be found.",
       pathname: "/blog",
       noindex: true
@@ -105,7 +105,7 @@ export const head = ({ resolveValue }: DocumentHeadProps) => {
   }
 
   return buildSeoHead({
-    title: `${post.title} | Tellodb`,
+    title: `${post.title} | TelloDB`,
     description: post.description,
     pathname: post.url,
     type: "article",

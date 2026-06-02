@@ -33,7 +33,7 @@ interface SeoOptions {
 
 export function buildSeoHead({
   title,
-  description = "Tellodb is the persistent memory layer for AI agents that need temporal awareness, truth extraction, and continuity across models.",
+  description = "TelloDB is the persistent memory layer for AI agents that need temporal awareness, truth extraction, and continuity across models.",
   pathname,
   type = "website",
   image = DEFAULT_SOCIAL_IMAGE,

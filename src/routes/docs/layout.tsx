@@ -96,7 +96,7 @@ export default component$(() => {
             </div>
             <div>
               <p class="docs-brand-title">Docs</p>
-              <p class="docs-brand-subtitle">Tellodb Guide</p>
+              <p class="docs-brand-subtitle">TelloDB Guide</p>
             </div>
           </div>
 

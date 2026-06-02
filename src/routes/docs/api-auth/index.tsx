@@ -6,9 +6,9 @@ export default component$(() => {
   return (
     <>
       <div class="eyebrow">API Authentication</div>
-      <h1>Securing Your Tellodb Instance</h1>
+      <h1>Securing Your TelloDB Instance</h1>
       <p class="doc-lead">
-        When you move from local development to a hosted environment, authentication becomes a top priority. Tellodb's API key management ensures your user's memories are protected.
+        When you move from local development to a hosted environment, authentication becomes a top priority. TelloDB's API key management ensures your user's memories are protected.
       </p>
 
       <h2>A simple path to security</h2>
@@ -19,7 +19,7 @@ export default component$(() => {
       <h3>How API keys keep you safe:</h3>
       <ul>
         <li><strong>App Isolation:</strong> Each key identifies exactly which application or workspace is making a request.</li>
-        <li><strong>Server-Side Enclosure:</strong> Tellodb enforces tenant and project scopes at the engine level, so memories from different apps never leak.</li>
+        <li><strong>Server-Side Enclosure:</strong> TelloDB enforces tenant and project scopes at the engine level, so memories from different apps never leak.</li>
         <li><strong>Audit Logging:</strong> Every ingest and query is logged with request IDs and actor context, giving you a full trail of how memory is used.</li>
         <li><strong>Traffic Control:</strong> We apply rate limits per key, ensuring your production instances are protected from accidental (or intentional) spikes in usage.</li>
       </ul>
@@ -41,7 +41,7 @@ export default component$(() => {
 
       <h2>The Platform Experience</h2>
       <p>
-        The Tellodb Platform UI makes managing your security effortless. In just a few clicks, you can:
+        The TelloDB Platform UI makes managing your security effortless. In just a few clicks, you can:
       </p>
       <ul>
         <li><strong>Login and Sign Up:</strong> Securely manage your account and workspaces.</li>
@@ -51,15 +51,15 @@ export default component$(() => {
       </ul>
 
       <p>
-        Ready to secure your instance? Check out our [Quickstart](/docs/quickstart) to see how to point your SDK to a hosted Tellodb engine.
+        Ready to secure your instance? Check out our [Quickstart](/docs/quickstart) to see how to point your SDK to a hosted TelloDB engine.
       </p>
     </>
   );
 });
 
 export const head = createHead(
-  "API Authentication for AI Memory | Tellodb",
-  "Learn how to secure your hosted Tellodb memory engine with API keys and scoped access controls for AI agents.",
+  "API Authentication for AI Memory | TelloDB",
+  "Learn how to secure your hosted TelloDB memory engine with API keys and scoped access controls for AI agents.",
   "/docs/api-auth",
   [
     "AI memory API authentication",

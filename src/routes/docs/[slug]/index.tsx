@@ -196,7 +196,7 @@ export const head = ({ resolveValue }: DocumentHeadProps) => {
   };
 
   return buildSeoHead({
-    title: `${page.title} | Tellodb`,
+    title: `${page.title} | TelloDB`,
     description: page.description,
     pathname: `/docs/${page.slug}`,
     keywords: docKeywords[page.slug] ?? ["memory engine documentation", "AI agent memory guide"]

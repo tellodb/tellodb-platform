@@ -188,7 +188,7 @@ export const onPost: RequestHandler = async (event) => {
       await supabase.from("purchases").insert({
         user_id: user.user_id,
         amount: totalCents / 100,
-        description: `Tellodb - Dedicated VM (${vmConfig.name}, ${storageGb} GB Storage)`,
+        description: `TelloDB - Dedicated VM (${vmConfig.name}, ${storageGb} GB Storage)`,
       });
 
       throw event.redirect(
@@ -210,7 +210,7 @@ export const onPost: RequestHandler = async (event) => {
             price_data: {
               currency: "usd",
               product_data: {
-                name: `Tellodb - ${vmConfig.name} (${storageGb} GB Storage)`,
+                name: `TelloDB - ${vmConfig.name} (${storageGb} GB Storage)`,
                 description: `${vmConfig.description} with ${storageGb} GB SSD storage included.`,
               },
               unit_amount: totalCents,

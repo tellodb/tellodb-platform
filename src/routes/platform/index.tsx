@@ -221,7 +221,7 @@ const plans = [
     name: "Fractional",
     price: "$1.00",
     unit: "/1M truths",
-    description: "Pay-as-you-go on the Tellodb shared engine",
+    description: "Pay-as-you-go on the TelloDB shared engine",
     features: [
       "Shared compute instance",
       "10,000 free operations/mo",
@@ -1925,7 +1925,7 @@ client.ingest(
                 {/* Data structure bar chart */}
                 <div class="rounded-xl border border-outline-variant/10 bg-surface-container-low p-5">
                   <h3 class="text-sm font-bold text-on-surface mb-4">
-                    Tellodb Schema — Record Distribution
+                    TelloDB Schema — Record Distribution
                   </h3>
                   {!storageData.loaded ? (
                     <div class="flex flex-col items-center justify-center py-12 text-center">
@@ -2704,7 +2704,7 @@ client.ingest(
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Console | TELLODB",
+  title: "Console | TelloDB",
   description: "Mission Control for your agentic memory engine.",
   pathname: "/platform",
   noindex: true,

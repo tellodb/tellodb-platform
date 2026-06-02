@@ -105,7 +105,7 @@ export default component$(() => {
         kind: n.kind,
       }));
     } else {
-      error.value = result.value?.error || "Could not reach the graph. Ensure the Tellodb engine is running.";
+      error.value = result.value?.error || "Could not reach the graph. Ensure the TelloDB engine is running.";
     }
     loading.value = false;
   };
@@ -184,7 +184,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Graph Explorer | TELLODB",
+  title: "Graph Explorer | TelloDB",
   description: "Explore the knowledge graph of your cluster.",
   pathname: "/platform/clusters/[id]/graph",
   noindex: true

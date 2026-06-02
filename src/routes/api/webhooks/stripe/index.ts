@@ -102,7 +102,7 @@ export const onPost: RequestHandler = async (event) => {
           await supabase.from("purchases").insert({
             user_id: userId,
             amount: vmMonthlyPrice,
-            description: `Tellodb - Dedicated VM (${tier.replace("_", " ")}, ${storageGb} GB Storage)`,
+            description: `TelloDB - Dedicated VM (${tier.replace("_", " ")}, ${storageGb} GB Storage)`,
           });
 
           // Provision Azure VM after payment

@@ -36,7 +36,7 @@ const plans = [
     name: "Fractional",
     price: "$1.00",
     unit: "/1M truths",
-    description: "Pay-as-you-go on the Tellodb shared engine",
+    description: "Pay-as-you-go on the TelloDB shared engine",
     features: [
       "Shared compute instance",
       "10,000 free operations/mo",
@@ -369,7 +369,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Billing | TELLODB",
+  title: "Billing | TelloDB",
   description: "Manage your billing and subscription.",
   pathname: "/platform/billing",
   noindex: true,

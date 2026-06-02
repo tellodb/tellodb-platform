@@ -120,8 +120,8 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Connectors | TELLODB",
-  description: "Connect Slack, GitHub, Notion, Gmail, and Google Drive to auto-ingest data into your Tellodb cluster.",
+  title: "Connectors | TelloDB",
+  description: "Connect Slack, GitHub, Notion, Gmail, and Google Drive to auto-ingest data into your TelloDB cluster.",
   pathname: "/platform/clusters/[id]/connectors",
   noindex: true
 });

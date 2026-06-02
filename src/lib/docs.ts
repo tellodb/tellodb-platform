@@ -21,7 +21,7 @@ export const docsNavigation: DocsCategory[] = [
       {
         href: "/docs",
         title: "Overview",
-        description: "What Tellodb is for and why the engine behaves differently.",
+        description: "What TelloDB is for and why the engine behaves differently.",
         icon: "rocket_launch"
       },
       {

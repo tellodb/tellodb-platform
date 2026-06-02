@@ -559,7 +559,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Analytics | TELLODB",
+  title: "Analytics | TelloDB",
   description: "View usage analytics for your cluster.",
   pathname: "/platform/clusters/[id]/analytics",
   noindex: true

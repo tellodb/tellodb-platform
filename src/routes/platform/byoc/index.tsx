@@ -29,7 +29,7 @@ export default component$(() => {
             Deploy Anywhere
           </h1>
           <p class="text-tertiary mt-4 max-w-2xl mx-auto">
-            Run Tellodb in your own infrastructure. One binary, zero
+            Run TelloDB in your own infrastructure. One binary, zero
             dependencies, full control.
           </p>
         </header>
@@ -130,9 +130,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Deploy Anywhere | TELLODB",
+  title: "Deploy Anywhere | TelloDB",
   description:
-    "Run Tellodb in your own infrastructure. Single binary, zero dependencies, air-gapped ready. Self-hosted AI memory engine.",
+    "Run TelloDB in your own infrastructure. Single binary, zero dependencies, air-gapped ready. Self-hosted AI memory engine.",
   pathname: "/platform/byoc",
   keywords: [
     "self-hosted memory engine",

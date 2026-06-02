@@ -470,7 +470,7 @@ const memoryGapCards = [
     ],
   },
   {
-    title: "Tellodb Memory Engine",
+    title: "TelloDB Memory Engine",
     icon: "psychology",
     iconWrapClass: "bg-primary/10 border border-primary/20",
     iconClass: "text-primary",
@@ -479,7 +479,7 @@ const memoryGapCards = [
     items: [
       {
         title: "Fact Supersession (Temporal Truth)",
-        body: "When life changes (e.g. moving from NYC to SF), Tellodb marks the old fact as stale, ensuring the LLM always gets the latest truth.",
+        body: "When life changes (e.g. moving from NYC to SF), TelloDB marks the old fact as stale, ensuring the LLM always gets the latest truth.",
         icon: "check_circle",
         iconClass: "text-primary",
       },
@@ -503,7 +503,7 @@ const distillationDetails = [
   {
     icon: "schedule",
     title: "Time-Awareness",
-    body: "I used to love coffee, but now I only drink tea. Tellodb does not hallucinate your old preferences. It updates your profile in real time.",
+    body: "I used to love coffee, but now I only drink tea. TelloDB does not hallucinate your old preferences. It updates your profile in real time.",
   },
   {
     icon: "filter_center_focus",
@@ -524,7 +524,7 @@ const userFlowCards = [
     delay: "",
   },
   {
-    date: "Tellodb Ingests",
+    date: "TelloDB Ingests",
     quote: "Fact Integration",
     summary: "",
     icon: "psychology",
@@ -610,7 +610,7 @@ const deliveryTrack = [
   },
 ];
 
-const runtimeSnapshot = `engine: Tellodb
+const runtimeSnapshot = `engine: TelloDB
 routes: /ingest /query/semantic /query/temporal /memory
 indexes: hnsw + bm25 + graph lineage
 policy: ttl + decay + supersession
@@ -644,14 +644,14 @@ const ecosystemItems = [
     link: "/docs/memory-proxy",
   },
   {
-    title: "Tellodb CLI",
+    title: "TelloDB CLI",
     body: "Unified command-line tool to manage your engine, run local benchmarks, and monitor memory logs in real-time.",
     icon: "terminal",
     link: "/docs/local-engine",
   },
   {
     title: "MCP Server",
-    body: "Built-in support for the Model Context Protocol. Connect Tellodb directly to Claude Code, Cursor, and agentic IDEs.",
+    body: "Built-in support for the Model Context Protocol. Connect TelloDB directly to Claude Code, Cursor, and agentic IDEs.",
     icon: "hub",
     link: "/docs",
   },
@@ -1095,7 +1095,7 @@ export default component$(() => {
                 <span class="text-gradient-accent italic">Simulation.</span>
               </h3>
               <p class="mt-6 mx-auto max-w-2xl text-base text-tertiary leading-relaxed">
-                Experience Tellodb's real-time ingestion and recall loop. Store
+                Experience TelloDB's real-time ingestion and recall loop. Store
                 a fact, then retrieve it across model contexts.
               </p>
             </div>
@@ -1464,13 +1464,13 @@ export default component$(() => {
                       </span>
                     </div>
                     <span class="text-[9px] font-mono uppercase font-bold tracking-widest text-primary font-bold">
-                      Tellodb
+                      TelloDB
                     </span>
                   </div>
                 </div>
 
                 <p class="mt-6 text-xs leading-relaxed text-tertiary">
-                  Tellodb resolves standard vector search failures. In memory
+                  TelloDB resolves standard vector search failures. In memory
                   tasks with high fact-density, the local hybrid architecture
                   ensures precise recall.
                 </p>
@@ -1566,7 +1566,7 @@ export default component$(() => {
                   <span class="text-gradient-accent italic">truth.</span>
                 </h3>
                 <p class="mb-8 text-base text-tertiary leading-relaxed">
-                  Raw chat logs are noise. Tellodb acts as a cognitive filter,
+                  Raw chat logs are noise. TelloDB acts as a cognitive filter,
                   distilling human rambling into a clean, queryable lattice of
                   facts.
                 </p>
@@ -1696,7 +1696,7 @@ export default component$(() => {
 
                   <div
                     class={`mb-3 font-mono text-xs uppercase tracking-wider ${
-                      card.date === "Tellodb Ingests"
+                      card.date === "TelloDB Ingests"
                         ? "text-primary"
                         : "text-tertiary"
                     }`}
@@ -1771,7 +1771,7 @@ export default component$(() => {
                 <span class="text-gradient-accent italic">AI Scale.</span>
               </h3>
               <p class="text-base text-tertiary leading-relaxed">
-                Tellodb replaces complex, slow orchestration chains with a
+                TelloDB replaces complex, slow orchestration chains with a
                 unified, high-performance cognitive database engine.
               </p>
             </div>
@@ -1865,7 +1865,7 @@ export default component$(() => {
                 <span class="italic text-primary">Pipeline.</span>
               </h3>
               <p class="mt-6 mx-auto max-w-2xl text-tertiary">
-                Tellodb is not just storage; it is a multi-stage cognitive
+                TelloDB is not just storage; it is a multi-stage cognitive
                 processor that transforms raw noise into reliable agentic state.
               </p>
             </div>
@@ -2020,7 +2020,7 @@ export default component$(() => {
                 <span class="text-gradient-accent italic">Memory Lattice.</span>
               </h3>
               <p class="mt-6 max-w-2xl text-tertiary">
-                Experience how Tellodb organizes memories. Drag nodes to
+                Experience how TelloDB organizes memories. Drag nodes to
                 interact with the underlying graph logic where new facts
                 supersede the old.
               </p>
@@ -2206,7 +2206,7 @@ export default component$(() => {
                   <CpuIcon class="text-lg text-tertiary" />
                 </div>
                 <h4 class="mb-2 text-2xl font-bold text-on-surface font-headline">
-                  <span class="text-primary">Tellodb</span> Core
+                  <span class="text-primary">TelloDB</span> Core
                 </h4>
                 <p class="mb-1 text-[9px] font-mono font-bold uppercase tracking-widest text-tertiary/60">
                   Open Source Engine
@@ -2254,7 +2254,7 @@ export default component$(() => {
                   <GlobeIcon class="text-lg text-primary" />
                 </div>
                 <h4 class="mb-2 text-2xl font-bold text-white font-headline">
-                  <span class="text-primary">Tellodb</span> Platform
+                  <span class="text-primary">TelloDB</span> Platform
                 </h4>
                 <p class="mb-1 text-[9px] font-mono font-bold uppercase tracking-widest text-primary">
                   Managed Cloud Service
@@ -2306,7 +2306,7 @@ export default component$(() => {
           <div class="container mx-auto">
             <div class="scroll-reveal mb-16 text-center">
               <h2 class="mb-4 text-sm font-bold uppercase tracking-widest text-primary font-mono">
-                The Tellodb Ecosystem
+                The TelloDB Ecosystem
               </h2>
               <h3 class="text-3xl md:text-4xl font-extrabold tracking-tight md:text-5xl font-headline">
                 Integrate Memory{" "}
@@ -2461,7 +2461,7 @@ export default component$(() => {
         </div>
 
         <div class="container mx-auto mt-16 border-t border-white/5 pt-8 text-center font-mono text-[9px] uppercase tracking-widest text-tertiary/75">
-          © 2026 Tellodb Systems. All human memories preserved. Truth disclosed.
+          © 2026 TelloDB Systems. All human memories preserved. Truth disclosed.
         </div>
       </footer>
     </div>
@@ -2474,7 +2474,7 @@ const structuredData = {
     {
       "@type": "Organization",
       "@id": "https://tellodb.com/#organization",
-      name: "Tellodb",
+      name: "TelloDB",
       url: "https://tellodb.com",
       logo: "https://tellodb.com/icon-192.png",
       description:
@@ -2488,13 +2488,13 @@ const structuredData = {
       "@type": "WebSite",
       "@id": "https://tellodb.com/#website",
       url: "https://tellodb.com",
-      name: "Tellodb",
+      name: "TelloDB",
       publisher: { "@id": "https://tellodb.com/#organization" },
     },
     {
       "@type": "SoftwareApplication",
       "@id": "https://tellodb.com/#software",
-      name: "Tellodb Memory Engine",
+      name: "TelloDB Memory Engine",
       applicationCategory: "DeveloperApplication",
       operatingSystem: "Linux, macOS, Windows",
       description:
@@ -2509,9 +2509,9 @@ const structuredData = {
 };
 
 export const head: DocumentHead = buildSeoHead({
-  title: "TELLODB | Agents That Remember",
+  title: "TelloDB | Agents That Remember",
   description:
-    "Tellodb is the persistent memory layer for AI agents that need temporal awareness, truth extraction, and continuity across models.",
+    "TelloDB is the persistent memory layer for AI agents that need temporal awareness, truth extraction, and continuity across models.",
   pathname: "/",
   keywords: [
     "agent memory",

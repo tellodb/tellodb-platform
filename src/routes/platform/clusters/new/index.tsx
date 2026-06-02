@@ -58,7 +58,7 @@ export default component$(() => {
             Back to Mission Control
           </Link>
           <h1 class="font-headline text-4xl font-extrabold tracking-tighter text-on-surface">
-            Integrate Tellodb
+            Integrate TelloDB
           </h1>
           <p class="mt-2 text-tertiary">
             Select your integration architecture to connect your cognitive
@@ -439,8 +439,8 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = buildSeoHead({
-  title: "Deploy Cluster | TELLODB",
-  description: "Deploy a new Tellodb cluster.",
+  title: "Deploy Cluster | TelloDB",
+  description: "Deploy a new TelloDB cluster.",
   pathname: "/platform/clusters/new",
   noindex: true,
 });

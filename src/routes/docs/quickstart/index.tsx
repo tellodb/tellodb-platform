@@ -8,12 +8,12 @@ export default component$(() => {
       <div class="eyebrow">Quickstart</div>
       <h1>Quickstart: Add AI Memory in Minutes</h1>
       <p class="doc-lead">
-        Get the Tellodb engine running, connect your application using our SDK, and start giving your AI agents persistent, time-aware memory.
+        Get the TelloDB engine running, connect your application using our SDK, and start giving your AI agents persistent, time-aware memory.
       </p>
 
       <h2>The Local-First Development Path</h2>
       <p>
-        We believe developers should be able to build and test without relying on external cloud services. Tellodb is built in Rust, meaning it compiles to a blazing-fast, single binary you can run right on your machine.
+        We believe developers should be able to build and test without relying on external cloud services. TelloDB is built in Rust, meaning it compiles to a blazing-fast, single binary you can run right on your machine.
       </p>
       <p>First, build and run the engine locally:</p>
       <pre class="docs-code">
@@ -25,7 +25,7 @@ export default component$(() => {
       <pre class="docs-code">
         <code>{`from tellodb import TellodbClient
 
-# Connect to the local Tellodb binary
+# Connect to the local TelloDB binary
 client = TellodbClient.from_local(auto_start=True)
 
 # Give your agent a permanent memory
@@ -37,7 +37,7 @@ hits = client.query("What coffee do I prefer?", entity_id="user-123")`}</code>
 
       <h2>Seamless Cloud Deployment</h2>
       <p>
-        When you are ready to ship to production, you don't need to rewrite your memory logic. Simply create an API key in the Tellodb platform dashboard, and switch your SDK constructor to point to the cloud.
+        When you are ready to ship to production, you don't need to rewrite your memory logic. Simply create an API key in the TelloDB platform dashboard, and switch your SDK constructor to point to the cloud.
       </p>
 
       <pre class="docs-code">
@@ -52,15 +52,15 @@ hits = client.query("What coffee do I prefer?", entity_id="user-123")`}</code>
       </p>
       
       <p>
-        Ready to dive deeper? Check out our guides on <strong>Fact Supersession</strong> and <strong>Temporal Retrieval</strong> to see what makes Tellodb smarter than a standard vector database.
+        Ready to dive deeper? Check out our guides on <strong>Fact Supersession</strong> and <strong>Temporal Retrieval</strong> to see what makes TelloDB smarter than a standard vector database.
       </p>
     </>
   );
 });
 
 export const head = createHead(
-  "Quickstart | Tellodb AI Memory",
-  "Learn how to quickly add persistent, long-term memory to your AI agents using the Tellodb SDK and Rust engine.",
+  "Quickstart | TelloDB AI Memory",
+  "Learn how to quickly add persistent, long-term memory to your AI agents using the TelloDB SDK and Rust engine.",
   "/docs/quickstart",
   [
     "AI agent memory quickstart",
