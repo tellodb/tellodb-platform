@@ -1014,7 +1014,7 @@ export default component$(() => {
               </div>
               <div class="p-6 font-mono text-xs space-y-4">
                 <div class="flex items-center justify-between text-green-400">
-                  <span>● ENGINE: tellodbdb_core v0.1.0 [Active]</span>
+                  <span>● ENGINE: tellodb_core v0.1.0 [Active]</span>
                   <span class="animate-pulse">ONLINE</span>
                 </div>
 
