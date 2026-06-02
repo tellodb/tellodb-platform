@@ -28,7 +28,7 @@ export const Header = component$((props: HeaderProps) => {
           >
             <div class="flex h-10 w-10 items-center justify-center">
               <img
-                src="/icon-64.png"
+                src="/icon-192.png"
                 alt=""
                 width={40}
                 height={40}
@@ -37,7 +37,7 @@ export const Header = component$((props: HeaderProps) => {
                 class="object-contain"
               />
             </div>
-            <span>Tellodb</span>
+            <span>TelloDB</span>
           </Link>
           <nav class="hidden items-center gap-6 md:flex">
             <Link
