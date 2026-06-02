@@ -395,6 +395,8 @@ export default component$(() => {
   const localKeyList = useSignal<ApiKey[]>([]);
   const settingsNewName = useSignal("");
   const graphEntityId = useSignal("");
+  const graphEntityIds = useSignal<string[]>([]);
+  const graphEntityIdsLoading = useSignal(false);
 
   useTask$(({ track }) => {
     const user = track(() => platformData.value.user);
@@ -1690,14 +1692,44 @@ client.ingest(
                       Knowledge Graph Visualization
                     </h3>
                     <div class="flex items-center gap-2">
-                      <input
-                        value={graphEntityId.value}
-                        onInput$={(_, el) => {
-                          graphEntityId.value = el.value;
-                        }}
-                        placeholder="entity_id (e.g. user-1223)"
-                        class="rounded-lg border border-outline-variant/15 bg-surface-container-highest px-3 py-1.5 text-xs text-on-surface outline-none focus:border-primary/50 transition-colors placeholder:text-tertiary/50 w-48"
-                      />
+                      <div class="relative">
+                        <select
+                          value={graphEntityId.value}
+                          onChange$={(_, el) => {
+                            graphEntityId.value = el.value;
+                          }}
+                          onFocus$={async () => {
+                            if (graphEntityIds.value.length > 0 || graphEntityIdsLoading.value) return;
+                            graphEntityIdsLoading.value = true;
+                            try {
+                              const res = await fetch("/api/shared/entity-ids");
+                              graphEntityIds.value = res.ok ? ((await res.json()) as string[]) : [];
+                            } catch {
+                              graphEntityIds.value = [];
+                            }
+                            graphEntityIdsLoading.value = false;
+                          }}
+                          class="rounded-lg border border-outline-variant/15 bg-surface-container-highest px-3 py-1.5 pr-8 text-xs text-on-surface outline-none focus:border-primary/50 transition-colors w-52 appearance-none cursor-pointer"
+                        >
+                          <option value="" disabled={false}>
+                            {graphEntityIdsLoading.value
+                              ? "Loading entities..."
+                              : graphEntityIds.value.length === 0
+                              ? "Select entity_id..."
+                              : "Select entity_id..."}
+                          </option>
+                          {graphEntityIds.value.map((eid) => (
+                            <option key={eid} value={eid}>
+                              {eid}
+                            </option>
+                          ))}
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-2 flex items-center">
+                          <svg class="w-3 h-3 text-tertiary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </div>
+                      </div>
                       <button
                         type="button"
                         class="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-bold text-on-primary transition-all hover:opacity-90 active:scale-[0.97] shrink-0"
@@ -1754,42 +1786,120 @@ client.ingest(
                   ) : (
                     <div class="overflow-x-auto">
                       <svg
-                        width={Math.max(500, graphData.edges.length * 1.5)}
-                        height="400"
+                        width={Math.max(600, graphData.edges.length * 30)}
+                        height={Math.max(400, graphData.edges.length * 20)}
                       >
                         {(() => {
-                          const nodes = Array.from(
-                            (() => {
-                              const s = new Set<string>();
-                              for (const e of graphData.edges) {
-                                s.add(e.source);
-                                s.add(e.target);
-                              }
-                              return s;
-                            })(),
-                          );
-                          const nodePos = new Map<
-                            string,
-                            { x: number; y: number }
-                          >();
-                          const cx =
-                            Math.max(500, graphData.edges.length * 1.5) / 2;
-                          const cy = 200;
-                          const r = Math.min(180, nodes.length * 15);
-                          nodes.forEach((n, i) => {
-                            const angle =
-                              (2 * Math.PI * i) / nodes.length - Math.PI / 2;
-                            nodePos.set(n, {
-                              x: cx + r * Math.cos(angle),
-                              y: cy + r * Math.sin(angle),
+                          const edges = graphData.edges.slice(0, 200);
+
+                          // ── Build hub-and-spoke layout ──────────────────────
+                          // "Hub" nodes: sources of entity_term edges (the entity IDs)
+                          // "Leaf" nodes: targets of entity_term edges (the extracted terms)
+                          // co_occurs edges connect leaves to leaves
+
+                          const hubSet = new Set<string>();
+                          const leafSet = new Set<string>();
+                          for (const e of edges) {
+                            if (e.edge_type === "entity_term") {
+                              hubSet.add(e.source);
+                              leafSet.add(e.target);
+                            } else {
+                              // For other edge types, treat both as leaves unless already a hub
+                              if (!hubSet.has(e.source)) leafSet.add(e.source);
+                              if (!hubSet.has(e.target)) leafSet.add(e.target);
+                            }
+                          }
+
+                          // Collect all nodes, hubs first then leaves
+                          const hubs = Array.from(hubSet);
+                          const leaves = Array.from(leafSet).filter(l => !hubSet.has(l));
+
+                          const svgW = Math.max(600, graphData.edges.length * 30);
+                          const svgH = Math.max(400, graphData.edges.length * 20);
+                          const nodePos = new Map<string, { x: number; y: number }>();
+
+                          if (hubs.length === 0) {
+                            // Fallback: circular layout for unknown edge types
+                            const allNodes = Array.from(new Set(edges.flatMap(e => [e.source, e.target])));
+                            const cx = svgW / 2;
+                            const cy = svgH / 2;
+                            const r = Math.min(svgH / 2 - 40, allNodes.length * 18);
+                            allNodes.forEach((n, i) => {
+                              const angle = (2 * Math.PI * i) / allNodes.length - Math.PI / 2;
+                              nodePos.set(n, { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle) });
                             });
-                          });
+                          } else {
+                            // Hub-and-spoke: place hubs evenly along a central horizontal axis,
+                            // leaves fanned out below each hub they connect to.
+                            const hubY = svgH * 0.3;
+                            const hubSpacing = svgW / (hubs.length + 1);
+                            hubs.forEach((h, i) => {
+                              nodePos.set(h, { x: hubSpacing * (i + 1), y: hubY });
+                            });
+
+                            // Group leaves by their hub (the source of entity_term edge)
+                            const hubLeaves = new Map<string, string[]>();
+                            for (const h of hubs) hubLeaves.set(h, []);
+                            for (const e of edges) {
+                              if (e.edge_type === "entity_term" && hubLeaves.has(e.source)) {
+                                const arr = hubLeaves.get(e.source)!;
+                                if (!arr.includes(e.target)) arr.push(e.target);
+                              }
+                            }
+
+                            // Position leaves as a fan below/around their hub
+                            for (const [hub, ls] of hubLeaves.entries()) {
+                              const hp = nodePos.get(hub)!;
+                              const count = ls.length;
+                              const spreadAngle = Math.min(Math.PI * 0.9, count * 0.35);
+                              ls.forEach((leaf, i) => {
+                                if (nodePos.has(leaf)) return; // already positioned
+                                const angle = count === 1
+                                  ? Math.PI / 2
+                                  : (Math.PI / 2 - spreadAngle / 2) + (spreadAngle / Math.max(1, count - 1)) * i;
+                                const radius = 100 + Math.floor(i / 8) * 40;
+                                nodePos.set(leaf, {
+                                  x: hp.x + radius * Math.cos(angle),
+                                  y: hp.y + radius * Math.sin(angle),
+                                });
+                              });
+                            }
+
+                            // Any orphaned leaves (co_occurs only) positioned in a row at the bottom
+                            let orphanX = 40;
+                            for (const leaf of leaves) {
+                              if (!nodePos.has(leaf)) {
+                                nodePos.set(leaf, { x: orphanX, y: svgH - 40 });
+                                orphanX += 80;
+                              }
+                            }
+                          }
+
                           return (
                             <>
-                              {graphData.edges.slice(0, 200).map((e, i) => {
+                              {/* Arrow marker definition */}
+                              <defs>
+                                <marker
+                                  id="arrowhead"
+                                  markerWidth="6"
+                                  markerHeight="4"
+                                  refX="5"
+                                  refY="2"
+                                  orient="auto"
+                                >
+                                  <polygon
+                                    points="0 0, 6 2, 0 4"
+                                    class="fill-primary/40"
+                                  />
+                                </marker>
+                              </defs>
+
+                              {/* Edges */}
+                              {edges.map((e) => {
                                 const sp = nodePos.get(e.source);
                                 const tp = nodePos.get(e.target);
                                 if (!sp || !tp) return null;
+                                const isHub = e.edge_type === "entity_term";
                                 return (
                                   <g key={e.edge_id}>
                                     <line
@@ -1798,34 +1908,63 @@ client.ingest(
                                       x2={tp.x}
                                       y2={tp.y}
                                       stroke="currentColor"
-                                      class="stroke-primary/20"
-                                      stroke-width={Math.max(0.5, e.weight * 3)}
+                                      class={isHub ? "stroke-primary/40" : "stroke-secondary/25"}
+                                      stroke-width={isHub ? "1.5" : "1"}
+                                      stroke-dasharray={isHub ? "none" : "4 3"}
+                                      marker-end="url(#arrowhead)"
                                     />
-                                    <title>{`${e.source} → ${e.target}: ${e.label || e.edge_type} (w: ${e.weight.toFixed(2)})`}</title>
+                                    <title>{`${e.source} → ${e.target}: ${e.label || e.edge_type}`}</title>
                                   </g>
                                 );
                               })}
-                              {nodes.map((n) => {
+
+                              {/* Leaf nodes */}
+                              {leaves.map((n) => {
+                                const p = nodePos.get(n);
+                                if (!p) return null;
+                                return (
+                                  <g key={n}>
+                                    <circle
+                                      cx={p.x}
+                                      cy={p.y}
+                                      r="5"
+                                      class="fill-secondary/60 stroke-surface-container-low"
+                                      stroke-width="1.5"
+                                    />
+                                    <text
+                                      x={p.x}
+                                      y={p.y + 15}
+                                      text-anchor="middle"
+                                      class="fill-tertiary/80 font-mono"
+                                      font-size="8"
+                                    >
+                                      {n.length > 16 ? n.slice(0, 14) + ".." : n}
+                                    </text>
+                                    <title>{n}</title>
+                                  </g>
+                                );
+                              })}
+
+                              {/* Hub nodes (rendered on top) */}
+                              {hubs.map((n) => {
                                 const p = nodePos.get(n)!;
                                 return (
                                   <g key={n}>
                                     <circle
                                       cx={p.x}
                                       cy={p.y}
-                                      r="6"
+                                      r="9"
                                       class="fill-primary stroke-surface-container-low"
                                       stroke-width="2"
                                     />
                                     <text
                                       x={p.x}
-                                      y={p.y + 16}
+                                      y={p.y + 20}
                                       text-anchor="middle"
-                                      class="fill-tertiary text-[9px] font-mono"
+                                      class="fill-on-surface font-mono font-bold"
                                       font-size="9"
                                     >
-                                      {n.length > 20
-                                        ? n.slice(0, 18) + ".."
-                                        : n}
+                                      {n.length > 18 ? n.slice(0, 16) + ".." : n}
                                     </text>
                                     <title>{n}</title>
                                   </g>
