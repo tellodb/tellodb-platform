@@ -69,7 +69,7 @@ export default component$(() => {
               </p>
               <pre class="bg-black/40 rounded-lg p-4 text-sm text-tertiary overflow-x-auto">
                 curl -L
-                https://github.com/Tellodb/Tellodb/releases/latest/download/tellodb-x86_64-linux
+                https://github.com/tellodb/tellodb/releases/latest/download/tellodb-x86_64-linux
                 -o tellodb chmod +x tellodb
               </pre>
             </div>

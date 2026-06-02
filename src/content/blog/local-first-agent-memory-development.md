@@ -84,7 +84,7 @@ cargo --version
 Clone the repository and build in release mode. The release build is significantly faster and the binary is self-contained.
 
 ```bash
-git clone https://github.com/SharjeelAbbas014/Tellodb.git
+git clone https://github.com/tellodb/tellodb.git
 cd tellodb
 
 # Build the engine binary

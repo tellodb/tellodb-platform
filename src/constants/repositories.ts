@@ -6,31 +6,31 @@ export interface PublicRepository {
 export const publicRepositoryLinks: PublicRepository[] = [
   {
     label: "TelloDB Platform",
-    href: "https://github.com/SharjeelAbbas014/tellodb-platform",
+    href: "https://github.com/tellodb/tellodb-platform",
   },
   {
     label: "TelloDB JS Client",
-    href: "https://github.com/SharjeelAbbas014/tellodb-js-client",
+    href: "https://github.com/tellodb/tellodb-node",
   },
   {
     label: "TelloDB Python Client",
-    href: "https://github.com/SharjeelAbbas014/tellodb-python-client",
+    href: "https://github.com/tellodb/tellodb-python",
   },
   {
     label: "Claude Code Memory",
-    href: "https://github.com/SharjeelAbbas014/tellodb-claude-code-memory",
+    href: "https://github.com/tellodb/tellodb-agent-memory-adapters",
   },
   {
     label: "Gemini Memory",
-    href: "https://github.com/SharjeelAbbas014/tellodb-gemini-memory",
+    href: "https://github.com/tellodb/tellodb-agent-memory-adapters",
   },
   {
     label: "Grok Memory",
-    href: "https://github.com/SharjeelAbbas014/tellodb-grok-memory",
+    href: "https://github.com/tellodb/tellodb-agent-memory-adapters",
   },
   {
     label: "OpenAI Memory",
-    href: "https://github.com/SharjeelAbbas014/tellodb-openai-memory",
+    href: "https://github.com/tellodb/tellodb-agent-memory-adapters",
   },
 ];
 

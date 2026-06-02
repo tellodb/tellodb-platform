@@ -524,4 +524,4 @@ This guide covered the complete path from building the engine to deploying it in
 
 The memory engine you built today scales horizontally — run multiple instances behind a load balancer, each with its own SQLite database, and route users to specific instances by namespace. Or run a single instance on a Raspberry Pi for a personal AI assistant that lives in your home network.
 
-For more details, check the [GitHub repository](https://github.com/SharjeelAbbas014/Tellodb) and the [Python SDK reference](https://pypi.org/project/tellodb/). The source code is open — read it, modify it, contribute back.
+For more details, check the [GitHub repository](https://github.com/tellodb/tellodb) and the [Python SDK reference](https://pypi.org/project/tellodb/). The source code is open — read it, modify it, contribute back.

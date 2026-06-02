@@ -1987,7 +1987,7 @@ reset first: true`,
           {
             label: "Quick start (binary)",
             language: "bash",
-            code: "curl -L https://github.com/Tellodb/Tellodb/releases/latest/download/tellodb-x86_64-linux -o tellodb\nchmod +x tellodb\nexport TEMPORAL_MEMORY_API_KEY=my-secret\nexport TEMPORAL_MEMORY_EMBEDDING_MODEL=BAAI/bge-small-en-v1.5\n./tellodb\n# Listening on http://localhost:3000",
+            code: "curl -L https://github.com/tellodb/tellodb/releases/latest/download/tellodb-x86_64-linux -o tellodb\nchmod +x tellodb\nexport TEMPORAL_MEMORY_API_KEY=my-secret\nexport TEMPORAL_MEMORY_EMBEDDING_MODEL=BAAI/bge-small-en-v1.5\n./tellodb\n# Listening on http://localhost:3000",
           },
           {
             label: "Docker",

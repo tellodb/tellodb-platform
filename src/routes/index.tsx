@@ -2480,7 +2480,7 @@ const structuredData = {
       description:
         "The persistent memory layer for AI agents. Hybrid vector + BM25 search, knowledge graphs, deterministic analytics, and fact supersession in a single Rust binary.",
       sameAs: [
-        "https://github.com/Tellodb/Tellodb",
+        "https://github.com/tellodb/tellodb",
         "https://linkedin.com/company/tellodb",
       ],
     },
