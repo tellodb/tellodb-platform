@@ -1,7 +1,7 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import { Link, useLocation } from "@builder.io/qwik-city";
 import type { AuthUser } from "~/lib/auth";
-import { LayoutDashboardIcon, LogOutIcon, MenuIcon, XIcon } from "lucide-qwik";
+import { GithubIcon, LayoutDashboardIcon, LogOutIcon, MenuIcon, XIcon } from "lucide-qwik";
 
 export interface HeaderProps {
   user?: AuthUser | null;
@@ -60,6 +60,15 @@ export const Header = component$((props: HeaderProps) => {
             >
               Blog
             </Link>
+            <a
+              href="https://github.com/tellodb/tellodb"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-tertiary hover:text-on-surface transition-colors duration-200"
+              aria-label="GitHub"
+            >
+              <GithubIcon class="w-4 h-4" />
+            </a>
           </nav>
         </div>
 
@@ -167,6 +176,19 @@ export const Header = component$((props: HeaderProps) => {
             >
               Blog
             </Link>
+            <a
+              href="https://github.com/tellodb/tellodb"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="app-topbar-mobile-link text-tertiary inline-flex items-center gap-2"
+              aria-label="GitHub"
+              onClick$={() => {
+                mobileOpen.value = false;
+              }}
+            >
+              <GithubIcon class="w-4 h-4" />
+              GitHub
+            </a>
             <div class="h-px w-full bg-outline-variant/10 my-2" />
 
             {props.user ? (
