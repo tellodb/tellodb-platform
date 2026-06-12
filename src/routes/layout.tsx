@@ -14,7 +14,7 @@ export default component$(() => {
   return (
     <>
       <Header user={authUser.value} />
-      <div class="pt-[104px]">
+      <div class="pt-[140px]">
         <Slot />
       </div>
     </>

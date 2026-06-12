@@ -100,60 +100,19 @@ export default component$(() => {
       {/* Login Form Side */}
       <div class="relative flex flex-1 flex-col items-center justify-center bg-surface p-6 md:p-24">
         <div class="w-full max-w-md">
-          <div class="mb-10">
-            <h2 class="mb-2 text-3xl font-bold tracking-tight text-on-surface">Welcome Back</h2>
-            <p class="text-tertiary">Access your persistent memory console.</p>
+          <div class="mb-10 text-center">
+            <h2 class="mb-4 text-3xl font-bold tracking-tight text-on-surface">Under Development</h2>
+            <p class="text-tertiary text-lg">
+              The TelloDB platform is currently under active development.
+              <br/><br/>
+              Stay tuned for updates! We are working hard to bring you the best experience.
+            </p>
+            <div class="mt-8">
+              <Link href="/" class="rounded-lg bg-primary px-6 py-3 text-sm font-bold text-on-primary transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/20">
+                Return Home
+              </Link>
+            </div>
           </div>
-
-          <Form action={loginAction} class="space-y-6">
-            <div class="space-y-1">
-              <label class="text-[10px] font-bold uppercase tracking-widest text-tertiary" for="email">Email</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                class="w-full rounded-lg border border-outline-variant/20 bg-surface-container-highest px-4 py-3 text-on-surface outline-none focus:border-primary transition-colors"
-                placeholder="you@example.com"
-                required
-              />
-            </div>
-
-            <div class="space-y-1">
-              <label class="text-[10px] font-bold uppercase tracking-widest text-tertiary" for="password">Password</label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                class="w-full rounded-lg border border-outline-variant/20 bg-surface-container-highest px-4 py-3 text-on-surface outline-none focus:border-primary transition-colors"
-                placeholder="••••••••"
-                required
-              />
-            </div>
-
-            {loginAction.value?.message && (
-              <p class="text-sm text-red-400">{loginAction.value.message}</p>
-            )}
-
-            <button
-              type="submit"
-              disabled={loginAction.isRunning}
-              class="w-full rounded-lg bg-primary py-4 font-bold text-on-primary shadow-xl shadow-primary/20 transition-all hover:scale-[1.01] active:scale-[0.98] disabled:opacity-70 disabled:grayscale disabled:cursor-not-allowed flex items-center justify-center gap-2"
-            >
-              {loginAction.isRunning ? (
-                <>
-                  <Loader2Icon class="w-5 h-5 animate-spin" />
-                  Signing In...
-                </>
-              ) : (
-                "Sign In"
-              )}
-            </button>
-          </Form>
-
-          <p class="mt-8 text-center text-sm text-tertiary">
-            Don't have an account?
-            <Link href="/signup" class="ml-1 text-primary font-bold hover:underline">Create one</Link>
-          </p>
         </div>
       </div>
     </main>

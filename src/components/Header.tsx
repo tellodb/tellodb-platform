@@ -17,6 +17,12 @@ export const Header = component$((props: HeaderProps) => {
 
   return (
     <header class="app-topbar fixed top-0 z-50 w-full font-body text-sm tracking-tight shadow-[0px_24px_48px_rgba(0,0,0,0.8)] antialiased">
+      <div class="bg-primary/10 border-b border-primary/20 w-full px-4 py-2 flex items-center justify-center text-sm font-medium text-[#E5E2E3] text-center backdrop-blur-md">
+        <span class="mr-2">🎉</span>
+        <span>
+          <a href="https://debate.tellodb.com" target="_blank" rel="noopener noreferrer" class="font-bold underline hover:text-primary transition-colors">debate.tellodb.com</a> is live! Compare and evaluate LLMs side-by-side.
+        </span>
+      </div>
       <div class="flex h-16 w-full items-center justify-between px-4 md:px-6">
         <div class="flex items-center gap-8">
           <Link
@@ -60,15 +66,6 @@ export const Header = component$((props: HeaderProps) => {
             >
               Blog
             </Link>
-            <a
-              href="https://github.com/tellodb/tellodb"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-tertiary hover:text-on-surface transition-colors duration-200"
-              aria-label="GitHub"
-            >
-              <GithubIcon class="w-4 h-4" />
-            </a>
           </nav>
         </div>
 
@@ -94,7 +91,16 @@ export const Header = component$((props: HeaderProps) => {
           </button>
 
           <div class="hidden items-center gap-4 md:flex">
-            {props.user ? (
+            <a
+              href="https://github.com/tellodb/tellodb"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex h-7 w-7 items-center justify-center rounded-full bg-white transition-opacity hover:opacity-80"
+              aria-label="GitHub"
+            >
+              <GithubIcon class="h-3.5 w-3.5 text-[#0F1117]" />
+            </a>
+            {props.user?.user_id ? (
               <>
                 <Link
                   href="/platform"
@@ -137,7 +143,7 @@ export const Header = component$((props: HeaderProps) => {
           </div>
 
           <div class="md:hidden">
-            {!props.user && (
+            {!props.user?.user_id && (
               <Link
                 href="/signup"
                 class="rounded-lg bg-primary px-3 py-1.5 text-xs font-bold text-on-primary shadow-lg"
@@ -191,7 +197,7 @@ export const Header = component$((props: HeaderProps) => {
             </a>
             <div class="h-px w-full bg-outline-variant/10 my-2" />
 
-            {props.user ? (
+            {props.user?.user_id ? (
               <>
                 <Link
                   href="/platform"

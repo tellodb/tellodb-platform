@@ -107,71 +107,19 @@ export default component$(() => {
       {/* Signup Form Side */}
       <div class="relative flex flex-1 flex-col items-center justify-center bg-surface p-6 md:p-24">
         <div class="w-full max-w-md">
-          <div class="mb-10">
-            <h2 class="mb-2 text-3xl font-bold tracking-tight text-on-surface">Get Started</h2>
-            <p class="text-tertiary">Initialize your workspace and API keys.</p>
+          <div class="mb-10 text-center">
+            <h2 class="mb-4 text-3xl font-bold tracking-tight text-on-surface">Under Development</h2>
+            <p class="text-tertiary text-lg">
+              The TelloDB platform is currently under active development and new signups are temporarily disabled.
+              <br/><br/>
+              Stay tuned for updates! We are working hard to bring you the best experience.
+            </p>
+            <div class="mt-8">
+              <Link href="/" class="rounded-lg bg-primary px-6 py-3 text-sm font-bold text-on-primary transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/20">
+                Return Home
+              </Link>
+            </div>
           </div>
-
-          <Form action={signupAction} class="space-y-6">
-            <div class="space-y-1">
-              <label class="text-[10px] font-bold uppercase tracking-widest text-tertiary" for="email">Email</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                class="w-full rounded-lg border border-outline-variant/20 bg-surface-container-highest px-4 py-3 text-on-surface outline-none focus:border-primary transition-colors"
-                placeholder="you@example.com"
-                required
-              />
-            </div>
-
-            <div class="space-y-1">
-              <label class="text-[10px] font-bold uppercase tracking-widest text-tertiary" for="display_name">Display Name <span class="font-normal text-outline-variant normal-case">(optional)</span></label>
-              <input
-                id="display_name"
-                name="display_name"
-                type="text"
-                class="w-full rounded-lg border border-outline-variant/20 bg-surface-container-highest px-4 py-3 text-on-surface outline-none focus:border-primary transition-colors"
-                placeholder="How should we call you?"
-              />
-            </div>
-
-            <div class="space-y-1">
-              <label class="text-[10px] font-bold uppercase tracking-widest text-tertiary" for="password">Password</label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                class="w-full rounded-lg border border-outline-variant/20 bg-surface-container-highest px-4 py-3 text-on-surface outline-none focus:border-primary transition-colors"
-                placeholder="At least 8 characters"
-                required
-              />
-            </div>
-
-            {signupAction.value?.message && (
-              <p class="text-sm text-red-400">{signupAction.value.message}</p>
-            )}
-
-            <button
-              type="submit"
-              disabled={signupAction.isRunning}
-              class="w-full rounded-lg bg-primary py-4 font-bold text-on-primary shadow-xl shadow-primary/20 transition-all hover:scale-[1.01] active:scale-[0.98] disabled:opacity-70 disabled:grayscale disabled:cursor-not-allowed flex items-center justify-center gap-2"
-            >
-              {signupAction.isRunning ? (
-                <>
-                  <Loader2Icon class="w-5 h-5 animate-spin" />
-                  Creating Account...
-                </>
-              ) : (
-                "Create Account"
-              )}
-            </button>
-          </Form>
-
-          <p class="mt-8 text-center text-sm text-tertiary">
-            Already have an account?
-            <Link href="/login" class="ml-1 text-primary font-bold hover:underline">Sign in</Link>
-          </p>
         </div>
       </div>
     </main>
