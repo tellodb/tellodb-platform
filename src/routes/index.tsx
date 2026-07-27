@@ -1681,9 +1681,9 @@ export default component$(() => {
               </h1>
 
               <p class="hero-description">
-                Give every agent a shared, durable understanding of its user.
-                TelloDB retrieves what matters, retires what changed, and
-                computes exact answers before context reaches the model.
+                TelloDB turns conversations into durable, inspectable memory.
+                It filters out what is no longer true. One Rust engine for
+                recall, temporal truth, and deterministic answers.
               </p>
 
               <div class="hero-actions">
@@ -3163,7 +3163,7 @@ const structuredData = {
       url: "https://tellodb.com",
       logo: "https://tellodb.com/telloDB-icon.png",
       description:
-        "The persistent memory layer for AI agents. Hybrid vector + BM25 search, knowledge graphs, deterministic analytics, and fact supersession in a single Rust binary.",
+        "TelloDB turns conversations into durable, inspectable memory. It filters out what is no longer true, with one Rust engine for recall, temporal truth, and deterministic answers.",
       sameAs: [
         "https://github.com/tellodb/tellodb",
         "https://linkedin.com/company/tellodb",
@@ -3196,7 +3196,7 @@ const structuredData = {
 export const head: DocumentHead = buildSeoHead({
   title: "TelloDB | Agents That Remember",
   description:
-    "TelloDB is the persistent memory layer for AI agents that need temporal awareness, truth extraction, and continuity across models.",
+    "TelloDB turns conversations into durable, inspectable memory. It filters out what is no longer true, with one Rust engine for recall, temporal truth, and deterministic answers.",
   pathname: "/",
   keywords: [
     "agent memory",
