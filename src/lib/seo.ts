@@ -110,6 +110,21 @@ export function buildSeoHead({
         content: imageUrl
       },
       {
+        key: "og-image-width",
+        property: "og:image:width",
+        content: "1200"
+      },
+      {
+        key: "og-image-height",
+        property: "og:image:height",
+        content: "630"
+      },
+      {
+        key: "og-image-type",
+        property: "og:image:type",
+        content: "image/png"
+      },
+      {
         key: "og-image-alt",
         property: "og:image:alt",
         content: imageAlt
@@ -133,6 +148,11 @@ export function buildSeoHead({
         key: "twitter-image",
         name: "twitter:image",
         content: imageUrl
+      },
+      {
+        key: "twitter-image-alt",
+        name: "twitter:image:alt",
+        content: imageAlt
       },
       ...(publishedAt
         ? [
