@@ -93,31 +93,31 @@ export const onPost: RequestHandler = async (event) => {
       { name: string; description: string; priceCents: number; size: string }
     > = {
       azure_micro: {
-        name: "Developer Micro",
+        name: "Developer",
         description: "Azure Standard_B2als_v2 dedicated VM",
         priceCents: 3900,
         size: "Standard_B2als_v2",
       },
       azure_standard: {
-        name: "Agent Standard",
+        name: "Standard",
         description: "Azure Standard_D2as_v5 dedicated VM",
         priceCents: 8900,
         size: "Standard_D2as_v5",
       },
       azure_pro: {
-        name: "Production Core",
+        name: "Production",
         description: "Azure Standard_D4as_v5 dedicated VM",
         priceCents: 17900,
         size: "Standard_D4as_v5",
       },
       azure_scale: {
-        name: "Scale Master",
+        name: "Scale",
         description: "Azure Standard_D8as_v5 dedicated VM",
         priceCents: 35900,
         size: "Standard_D8as_v5",
       },
       azure_gpu: {
-        name: "GPU Superbrain",
+        name: "GPU",
         description: "Azure Standard_NC4as_T4 dedicated VM",
         priceCents: 54900,
         size: "Standard_NC4as_T4",

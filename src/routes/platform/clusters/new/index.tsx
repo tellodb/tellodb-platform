@@ -47,7 +47,7 @@ export default component$(() => {
   );
 
   return (
-    <div class="flex min-h-screen bg-background text-on-surface font-body antialiased">
+    <div class="product-shell flex min-h-screen bg-background text-on-surface font-body antialiased">
       <main class="flex-1 overflow-y-auto p-8 lg:p-12 mb-20 max-w-5xl mx-auto w-full pt-[104px]">
         <header class="mb-12 flex flex-col gap-2">
           <Link
@@ -55,14 +55,13 @@ export default component$(() => {
             class="text-tertiary hover:text-primary mb-4 flex items-center gap-1 transition-colors w-fit"
           >
             <ArrowLeftIcon class="w-4 h-4" />
-            Back to Mission Control
+            Back to overview
           </Link>
           <h1 class="font-headline text-4xl font-extrabold tracking-tighter text-on-surface">
             Integrate TelloDB
           </h1>
           <p class="mt-2 text-tertiary">
-            Select your integration architecture to connect your cognitive
-            agents.
+            Choose how your agents will connect to TelloDB.
           </p>
         </header>
 
@@ -104,7 +103,7 @@ export default component$(() => {
                   />
                 </div>
                 <p class="text-sm text-tertiary mb-6 leading-relaxed">
-                  Connect your cognitive agents instantly to our shared engine
+                  Connect your agents instantly to our shared engine
                   at{" "}
                   <code class="text-amber-400 font-mono text-xs">
                     tellodb.com/api
@@ -254,7 +253,7 @@ export default component$(() => {
                 {[
                   {
                     id: "azure_micro",
-                    name: "Developer Micro",
+                    name: "Developer",
                     subName: "Azure Standard_B2als_v2",
                     badge: "Dedicated VM",
                     badgeClass: "bg-green-500/10 text-green-400",
@@ -268,7 +267,7 @@ export default component$(() => {
                   },
                   {
                     id: "azure_standard",
-                    name: "Agent Standard",
+                    name: "Standard",
                     subName: "Azure Standard_D2as_v5",
                     badge: "Production VM",
                     badgeClass: "bg-blue-500/10 text-blue-400",
@@ -282,7 +281,7 @@ export default component$(() => {
                   },
                   {
                     id: "azure_pro",
-                    name: "Production Core",
+                    name: "Production",
                     subName: "Azure Standard_D4as_v5",
                     badge: "High Performance",
                     badgeClass: "bg-orange-500/10 text-orange-400",
@@ -296,7 +295,7 @@ export default component$(() => {
                   },
                   {
                     id: "azure_scale",
-                    name: "Scale Master",
+                    name: "Scale",
                     subName: "Azure Standard_D8as_v5",
                     badge: "Enterprise VM",
                     badgeClass: "bg-purple-500/10 text-purple-400",
@@ -310,7 +309,7 @@ export default component$(() => {
                   },
                   {
                     id: "azure_gpu",
-                    name: "GPU Superbrain",
+                    name: "GPU",
                     subName: "Azure Standard_NC4as_T4",
                     badge: "GPU Accelerated",
                     badgeClass: "bg-rose-500/10 text-rose-400",

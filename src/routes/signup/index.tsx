@@ -82,46 +82,43 @@ export default component$(() => {
   });
 
   return (
-    <main class="flex min-h-[calc(100vh-104px)] w-full flex-col md:flex-row bg-background text-on-surface font-body antialiased overflow-x-hidden">
-      {/* Brand Side */}
-      <div class="relative hidden flex-col justify-between overflow-hidden bg-surface-container-lowest p-12 md:flex md:w-1/2">
-        <div class="absolute right-0 top-0 h-96 w-96 translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/10 blur-[120px]"></div>
-        <div class="absolute bottom-0 left-0 h-80 w-80 -translate-x-1/2 translate-y-1/2 rounded-full bg-primary/10 blur-[100px]"></div>
-
-
-        <div class="relative z-10 max-w-lg">
-          <h1 class="mb-6 text-5xl font-extrabold leading-tight tracking-tight">
-            Create your <br />
-            <span class="italic text-primary">Identity</span> in the Graph.
-          </h1>
-          <p class="text-lg leading-relaxed text-tertiary">
-            Join the decentralized truth layer and start building persistent, secure memory for your agents.
+    <main class="auth-shell">
+      <section class="auth-brand-panel auth-brand-panel-coral">
+        <Link href="/" class="auth-brand-link">
+          <img src="/tellodb-mark-64.png" alt="" width={48} height={48} />
+          <span>TelloDB</span>
+        </Link>
+        <div class="auth-brand-copy">
+          <h1>Build with memory from the first conversation.</h1>
+          <p>
+            Start on the shared engine, then move to dedicated infrastructure
+            when your workload needs it.
           </p>
         </div>
-
-        <div class="relative z-10">
-          <div class="font-mono text-[10px] uppercase tracking-widest text-outline-variant">System Status: Nominal</div>
+        <div class="auth-memory-note">
+          <span>Deployment paths</span>
+          <strong>Managed cloud · dedicated VM · self-hosted</strong>
         </div>
-      </div>
+      </section>
 
-      {/* Signup Form Side */}
-      <div class="relative flex flex-1 flex-col items-center justify-center bg-surface p-6 md:p-24">
-        <div class="w-full max-w-md">
-          <div class="mb-10 text-center">
-            <h2 class="mb-4 text-3xl font-bold tracking-tight text-on-surface">Under Development</h2>
-            <p class="text-tertiary text-lg">
-              The TelloDB platform is currently under active development and new signups are temporarily disabled.
-              <br/><br/>
-              Stay tuned for updates! We are working hard to bring you the best experience.
-            </p>
-            <div class="mt-8">
-              <Link href="/" class="rounded-lg bg-primary px-6 py-3 text-sm font-bold text-on-primary transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/20">
-                Return Home
-              </Link>
-            </div>
+      <section class="auth-action-panel">
+        <div class="auth-action-card">
+          <p class="auth-kicker">Private beta</p>
+          <h2>New accounts are opening in batches.</h2>
+          <p>
+            Tell us what you are building and we will send access when the next
+            pilot cohort opens.
+          </p>
+          <div class="auth-actions">
+            <a href="mailto:sharjeel@tellodb.com?subject=TelloDB%20beta%20access" class="auth-primary-action">
+              Join the beta
+            </a>
+            <Link href="/docs/quickstart" class="auth-secondary-action">
+              Explore the docs
+            </Link>
           </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 });

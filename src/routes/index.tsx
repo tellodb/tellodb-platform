@@ -101,6 +101,14 @@ export const MaterialIcon = component$(
   },
 );
 
+export const TelloGlyph = component$(
+  ({ tone = "default", class: className = "" }: { tone?: string; class?: string }) => (
+    <span class={`tello-glyph tello-glyph-${tone} ${className}`} aria-hidden="true">
+      <img src="/tellodb-mark-192.png" alt="" width={64} height={64} loading="lazy" decoding="async" />
+    </span>
+  ),
+);
+
 const topTenFeatures = [
   {
     title: "Rust-Powered Core",
@@ -439,6 +447,424 @@ const landingStyles = `
     animation: none !important;
   }
 }
+
+/* TelloDB brand system: calm workspace surfaces with color taken from the mark. */
+.landing-v2 {
+  --brand-ink: #172033;
+  --brand-muted: #5b6780;
+  --brand-purple: #5549b8;
+  --brand-purple-dark: #3c337f;
+  --brand-blue: #268fce;
+  --brand-coral: #f08d72;
+  --brand-mint: #65cfa3;
+  --brand-canvas: #f6f8fc;
+  --brand-panel: #ffffff;
+  --brand-line: rgba(23, 32, 51, 0.12);
+  background: var(--brand-canvas);
+  color: var(--brand-ink);
+}
+
+.landing-v2 .progress-rail {
+  top: 0;
+  height: 2px;
+  background: transparent;
+}
+
+.landing-v2 .progress-rail::after {
+  background: var(--brand-purple);
+  box-shadow: none;
+}
+
+.landing-v2 .interactive-aurora {
+  display: none;
+}
+
+.landing-v2 section {
+  border-color: var(--brand-line) !important;
+}
+
+.landing-v2 .tellodb-hero {
+  min-height: calc(100vh - 104px);
+  background: #f6f8fc;
+  border-bottom: 1px solid var(--brand-line);
+}
+
+.landing-v2 .hero-shell {
+  min-height: calc(100vh - 104px);
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+.landing-v2 .hero-release {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 1.75rem;
+  color: var(--brand-purple);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.landing-v2 .hero-headline {
+  max-width: 720px;
+  margin: 0;
+  color: var(--brand-ink);
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 6.8vw, 5.8rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.landing-v2 .hero-description {
+  max-width: 620px;
+  margin: 1.75rem 0 0;
+  color: var(--brand-muted);
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.landing-v2 .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.landing-v2 .hero-primary-action,
+.landing-v2 .hero-secondary-action {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 0.625rem;
+  padding: 0.75rem 1.15rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.landing-v2 .hero-primary-action {
+  border: 1px solid var(--brand-purple);
+  background: var(--brand-purple);
+  color: #fff;
+}
+
+.landing-v2 .hero-primary-action:hover {
+  background: var(--brand-purple-dark);
+  transform: translateY(-2px);
+}
+
+.landing-v2 .hero-secondary-action {
+  border: 1px solid rgba(23, 32, 51, 0.18);
+  background: #fff;
+  color: var(--brand-ink);
+}
+
+.landing-v2 .hero-secondary-action:hover {
+  border-color: rgba(85, 73, 184, 0.42);
+  background: #f0efff;
+}
+
+.landing-v2 .hero-assurance {
+  margin-top: 1.25rem;
+  color: #737f94;
+  font-size: 0.75rem;
+}
+
+.landing-v2 .hero-stage {
+  position: relative;
+  min-height: 620px;
+}
+
+.landing-v2 .hero-logo-field {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  width: 58%;
+  height: 66%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: var(--brand-coral);
+}
+
+.landing-v2 .hero-logo-field img {
+  width: min(76%, 280px);
+  height: auto;
+  transform: rotate(-5deg);
+  filter: drop-shadow(0 14px 18px rgba(59, 45, 91, 0.18));
+}
+
+.landing-v2 .memory-workspace {
+  position: absolute;
+  right: 12%;
+  bottom: 0;
+  width: min(92%, 640px);
+  overflow: hidden;
+  border: 1px solid rgba(23, 32, 51, 0.14);
+  border-radius: 0.875rem;
+  background: #fff;
+  box-shadow: 0 8px 0 rgba(60, 51, 127, 0.11);
+}
+
+.landing-v2 .workspace-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--brand-line);
+  background: #fbfcfe;
+}
+
+.landing-v2 .workspace-bar > div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.landing-v2 .workspace-title {
+  font-size: 0.86rem;
+  font-weight: 750;
+}
+
+.landing-v2 .workspace-id,
+.landing-v2 .event-time,
+.landing-v2 .event-state,
+.landing-v2 .query-label {
+  color: #778298;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.66rem;
+}
+
+.landing-v2 .workspace-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #237451;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.landing-v2 .workspace-live span {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--brand-mint);
+}
+
+.landing-v2 .memory-sequence {
+  padding: 0.55rem 1.2rem;
+}
+
+.landing-v2 .memory-event {
+  display: grid;
+  grid-template-columns: 4.3rem minmax(0, 1fr) auto;
+  gap: 0.9rem;
+  align-items: start;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--brand-line);
+}
+
+.landing-v2 .memory-event strong {
+  display: block;
+  color: var(--brand-ink);
+  font-size: 0.84rem;
+}
+
+.landing-v2 .memory-event p {
+  margin: 0.22rem 0 0;
+  color: #68748b;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.landing-v2 .memory-event-retired strong {
+  color: #7d8799;
+  text-decoration: line-through;
+}
+
+.landing-v2 .event-state {
+  border: 1px solid #d9dfE8;
+  border-radius: 999px;
+  padding: 0.25rem 0.5rem;
+}
+
+.landing-v2 .event-state-active {
+  border-color: rgba(38, 143, 206, 0.28);
+  background: #edf8fe;
+  color: #176891;
+}
+
+.landing-v2 .memory-query {
+  margin: 0.7rem;
+  padding: 1rem;
+  border-radius: 0.625rem;
+  background: #28225d;
+  color: #fff;
+}
+
+.landing-v2 .memory-query > p {
+  margin: 0.35rem 0 0.8rem;
+  color: #d9d7f4;
+  font-size: 0.82rem;
+}
+
+.landing-v2 .query-label {
+  color: #aaa5da;
+  text-transform: uppercase;
+}
+
+.landing-v2 .query-answer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.landing-v2 .query-answer span {
+  font-size: 1.15rem;
+  font-weight: 750;
+}
+
+.landing-v2 .query-answer small {
+  color: #aaa5da;
+  font-size: 0.68rem;
+}
+
+.landing-v2 .glass-panel {
+  border-color: rgba(23, 32, 51, 0.12);
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: none;
+  color: var(--brand-ink);
+  backdrop-filter: none;
+}
+
+.landing-v2 .glass-panel:hover {
+  border-color: rgba(85, 73, 184, 0.32);
+  background: #fff;
+  box-shadow: none;
+}
+
+.landing-v2 .text-gradient-accent {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--brand-purple);
+}
+
+.landing-v2 .obsidian-gradient {
+  background: var(--brand-purple);
+  color: #fff;
+}
+
+.landing-v2 .text-tertiary {
+  color: var(--brand-muted);
+}
+
+.landing-v2 .text-on-surface,
+.landing-v2 .text-white {
+  color: var(--brand-ink);
+}
+
+.landing-v2 .bg-black,
+.landing-v2 .bg-black\/30,
+.landing-v2 .bg-black\/35 {
+  background: #f2f4f8;
+}
+
+.landing-v2 h1,
+.landing-v2 h2,
+.landing-v2 h3 {
+  color: var(--brand-ink);
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.landing-v2 .scroll-reveal {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+
+.landing-v2 .tello-glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.landing-v2 .tello-glyph img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 4px rgba(32, 27, 65, 0.14));
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.landing-v2 a:hover .tello-glyph img {
+  transform: translateY(-2px) rotate(4deg);
+}
+
+@media (max-width: 1023px) {
+  .landing-v2 .tellodb-hero,
+  .landing-v2 .hero-shell {
+    min-height: auto;
+  }
+
+  .landing-v2 .hero-stage {
+    min-height: 560px;
+  }
+
+  .landing-v2 .hero-logo-field {
+    right: 2%;
+    width: 54%;
+  }
+
+  .landing-v2 .memory-workspace {
+    right: 6%;
+  }
+}
+
+@media (max-width: 640px) {
+  .landing-v2 .hero-headline {
+    font-size: clamp(3rem, 15vw, 4.2rem);
+  }
+
+  .landing-v2 .hero-stage {
+    min-height: 600px;
+  }
+
+  .landing-v2 .hero-logo-field {
+    width: 72%;
+    height: 42%;
+  }
+
+  .landing-v2 .memory-workspace {
+    right: 0;
+    width: 96%;
+  }
+
+  .landing-v2 .memory-event {
+    grid-template-columns: 3.6rem minmax(0, 1fr);
+  }
+
+  .landing-v2 .event-state {
+    display: none;
+  }
+
+  .landing-v2 .query-answer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+}
 `;
 
 const memoryGapCards = [
@@ -617,7 +1043,7 @@ policy: ttl + decay + supersession
 sdk: python + javascript`;
 
 const platformLinks = [
-  { label: "Mission Control", href: "/platform" },
+  { label: "Overview", href: "/platform" },
   { label: "Pricing", href: "/signup" },
   { label: "Benchmarks", href: "/platform/benchmarks" },
   { label: "Trust Center", href: "/platform/trust" },
@@ -945,139 +1371,104 @@ export default component$(() => {
     <div ref={pageRef} class="landing-v2 bg-surface text-on-surface font-body">
       <div aria-hidden="true" class="progress-rail" />
       <main class="pt-4">
-        <section class="relative min-h-[90vh] flex items-center px-6 border-b border-white/5 overflow-hidden">
-          {/* Background Aurora Effect */}
-          <div aria-hidden="true" class="interactive-aurora" />
-
-          <div class="container mx-auto grid grid-cols-1 items-center gap-16 lg:grid-cols-2 relative z-10 py-16 md:py-24">
-            <div>
-              <div class="mb-6 inline-flex items-center gap-2 border border-primary/20 bg-primary/5 px-4 py-1.5 rounded-full backdrop-blur-md">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                </span>
-                <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-primary">
-                  v0.1.0 — Now Open Source
-                </span>
-              </div>
-
-              <h1 class="mb-6 text-5xl font-extrabold tracking-tight md:text-7xl text-on-surface font-headline leading-[1.05]">
-                Memory Engine
-                <br />
-                <span class="text-gradient-accent">for AI Agents</span>
-              </h1>
-
-              <p class="mb-8 max-w-xl text-lg leading-relaxed text-tertiary">
-                Hybrid vector + BM25 search, knowledge graphs, deterministic
-                analytics, and fact supersession in a single Rust binary.
-                Self-host or deploy on our platform with one click.
+        <section data-hero class="tellodb-hero relative overflow-hidden px-6">
+          <div class="hero-shell container mx-auto grid grid-cols-1 items-center gap-14 lg:grid-cols-[.88fr_1.12fr]">
+            <div class="hero-copy">
+              <p class="hero-release">
+                TelloDB Core is open source
+                <span aria-hidden="true">↗</span>
               </p>
 
-              <div class="flex flex-wrap gap-4">
+              <h1 class="hero-headline">
+                Memory that keeps up with the person.
+              </h1>
+
+              <p class="hero-description">
+                Give every agent a shared, durable understanding of its user.
+                TelloDB retrieves what matters, retires what changed, and
+                computes exact answers before context reaches the model.
+              </p>
+
+              <div class="hero-actions">
                 <Link
                   href="/signup"
                   onClick$={() => capture("cta_signup_clicked")}
-                  class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-black font-extrabold rounded-xl hover:opacity-90 transition-opacity shadow-lg shadow-primary/10"
+                  class="hero-primary-action"
                 >
-                  Get Started Free
-                  <ArrowRightIcon class="w-4 h-4" />
+                  Start with TelloDB
+                  <ArrowRightIcon class="h-4 w-4" />
                 </Link>
-                <Link
-                  href="/login"
-                  onClick$={() => capture("cta_login_clicked")}
-                  class="inline-flex items-center gap-2 px-6 py-3 border border-white/10 text-on-surface font-bold rounded-xl hover:bg-white/5 transition-colors"
-                >
-                  Sign In
+                <Link href="/docs/quickstart" class="hero-secondary-action">
+                  View quickstart
                 </Link>
-                <a
-                  href={CALENDLY_30_MIN_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick$={() => capture("cta_demo_clicked")}
-                  class="inline-flex items-center gap-2 px-6 py-3 border border-white/10 text-tertiary font-bold rounded-xl hover:bg-white/5 transition-colors text-sm"
-                >
-                  Book a Demo
-                  <ExternalLinkIcon class="w-3 h-3" />
-                </a>
               </div>
+
+              <p class="hero-assurance">
+                One Rust binary · self-hosted or managed · no model lock-in
+              </p>
             </div>
 
-            {/* Simulated Rust Memory Engine Console */}
-            <div class="glass-panel rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden">
-              <div class="terminal-header">
-                <span class="terminal-dot red" />
-                <span class="terminal-dot yellow" />
-                <span class="terminal-dot green" />
-                <span class="text-[10px] font-mono text-tertiary ml-2">
-                  tellodb serve --port 5001
-                </span>
+            <div class="hero-stage">
+              <div class="hero-logo-field" aria-hidden="true">
+                <img
+                  src="/telloDB-icon.png"
+                  alt=""
+                  width={260}
+                  height={260}
+                  loading="eager"
+                  decoding="async"
+                />
               </div>
-              <div class="p-6 font-mono text-xs space-y-4">
-                <div class="flex items-center justify-between text-green-400">
-                  <span>● ENGINE: tellodb_core v0.1.0 [Active]</span>
-                  <span class="animate-pulse">ONLINE</span>
-                </div>
 
-                <div class="grid grid-cols-2 gap-3 text-secondary">
-                  <div class="p-3 bg-white/[0.02] border border-white/5 rounded-xl">
-                    <span class="block text-[9px] text-tertiary font-bold uppercase tracking-wider">
-                      Retrieval p99
-                    </span>
-                    <span class="text-lg font-bold text-white">4.2ms</span>
+              <div class="memory-workspace">
+                <div class="workspace-bar">
+                  <div>
+                    <span class="workspace-title">User memory</span>
+                    <span class="workspace-id">entity / amina-k</span>
                   </div>
-                  <div class="p-3 bg-white/[0.02] border border-white/5 rounded-xl">
-                    <span class="block text-[9px] text-tertiary font-bold uppercase tracking-wider">
-                      Memory Blocks
-                    </span>
-                    <span class="text-lg font-bold text-white">142,850</span>
-                  </div>
-                </div>
-
-                <div class="border-t border-white/5 pt-4 space-y-2">
-                  <span class="block text-[9px] text-tertiary font-bold uppercase tracking-wider mb-2">
-                    Memory Substrates Loaded
+                  <span class="workspace-live">
+                    <span aria-hidden="true" />
+                    synced
                   </span>
-                  <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-[11px]">
-                    {[
-                      { name: "HNSW Vector Index" },
-                      { name: "BM25F Full-Text Search" },
-                      { name: "Knowledge Graph Engine" },
-                      { name: "Temporal Truth Decay" },
-                      { name: "Metric Vault (Math)" },
-                      { name: "Air-Gapped Proxy Gateway" },
-                    ].map((sub) => (
-                      <div key={sub.name} class="flex items-center gap-2">
-                        <span class="text-green-400">✓</span>
-                        <span class="text-on-surface/90">{sub.name}</span>
-                      </div>
-                    ))}
+                </div>
+
+                <div class="memory-sequence">
+                  <div class="memory-event memory-event-retired">
+                    <span class="event-time">May 12</span>
+                    <div>
+                      <strong>Lives in Karachi</strong>
+                      <p>Superseded after a newer location was confirmed.</p>
+                    </div>
+                    <span class="event-state">retired</span>
+                  </div>
+                  <div class="memory-event">
+                    <span class="event-time">Jul 28</span>
+                    <div>
+                      <strong>Moved to Tokyo</strong>
+                      <p>Extracted from conversation · confidence 0.97</p>
+                    </div>
+                    <span class="event-state event-state-active">active</span>
+                  </div>
+                  <div class="memory-event">
+                    <span class="event-time">Jul 28</span>
+                    <div>
+                      <strong>Prefers jasmine tea</strong>
+                      <p>Preference linked to food and beverage profile.</p>
+                    </div>
+                    <span class="event-state event-state-active">active</span>
                   </div>
                 </div>
 
-                <div class="border-t border-white/5 pt-4">
-                  <div class="bg-black/30 rounded-lg p-3 text-[10px] text-tertiary/90 leading-relaxed border border-white/5">
-                    <span class="text-primary">$</span> tellodb query "user
-                    preferences"
-                    <br />
-                    <span class="text-white">
-                      &gt; Ingesting fact... "prefer jasmine tea over coffee"
-                    </span>
-                    <br />
-                    <span class="text-green-400">
-                      &gt; Fact supersession resolved. Invalidation complete.
-                    </span>
+                <div class="memory-query">
+                  <span class="query-label">Agent asks</span>
+                  <p>Where does Amina live now?</p>
+                  <div class="query-answer">
+                    <span>Tokyo</span>
+                    <small>resolved from 2 facts in 4.2 ms</small>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-1 rounded-full border border-white/5 bg-white/[0.02] backdrop-blur-md whitespace-nowrap">
-            <a
-              href="/docs"
-              class="text-xs font-mono text-tertiary hover:text-primary transition-colors whitespace-nowrap"
-            >
-              Learn how the engine works →
-            </a>
           </div>
         </section>
 
@@ -1088,11 +1479,11 @@ export default component$(() => {
           <div class="container mx-auto">
             <div class="scroll-reveal mb-16 text-center">
               <h2 class="mb-4 text-sm font-bold uppercase tracking-widest text-primary font-mono">
-                Interactive Demo
+                Live product demo
               </h2>
               <h3 class="text-4xl font-extrabold tracking-tight md:text-5xl font-headline">
-                Live Memory{" "}
-                <span class="text-gradient-accent italic">Simulation.</span>
+                See memory update{" "}
+                <span class="text-gradient-accent italic">in real time.</span>
               </h3>
               <p class="mt-6 mx-auto max-w-2xl text-base text-tertiary leading-relaxed">
                 Experience TelloDB's real-time ingestion and recall loop. Store
@@ -1356,16 +1747,16 @@ export default component$(() => {
           <div class="container mx-auto">
             <div class="scroll-reveal mx-auto mb-20 max-w-3xl text-center">
               <h2 class="mb-4 text-sm font-bold uppercase tracking-widest text-primary">
-                The Cognition Problem
+                Why memory matters
               </h2>
               <h3 class="mb-6 text-4xl font-black tracking-tight md:text-5xl">
-                Standard RAG is{" "}
-                <span class="italic text-tertiary">amnesiac.</span>
+                Chat history is not{" "}
+                <span class="italic text-tertiary">memory.</span>
               </h3>
               <p class="text-lg text-tertiary">
-                Vector databases are giant warehouses of static text. They find
-                words, but they do not understand life. They lose context,
-                ignore the passage of time, and drown in their own noise.
+                Similarity search can recover a passage, but it cannot decide
+                whether that passage is still true. TelloDB adds time,
+                relationships, and supersession to retrieval.
               </p>
             </div>
 
@@ -1557,25 +1948,25 @@ export default component$(() => {
             <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
               <div class="scroll-reveal">
                 <h2 class="mb-4 text-sm font-bold uppercase tracking-widest text-primary font-mono">
-                  The Distillation Loop
+                  How memory stays useful
                 </h2>
                 <h3 class="mb-8 text-4xl font-extrabold leading-tight md:text-5xl font-headline">
-                  We do not store text.
+                  Keep the signal.
                   <br />
-                  We extract{" "}
-                  <span class="text-gradient-accent italic">truth.</span>
+                  Retire the{" "}
+                  <span class="text-gradient-accent italic">noise.</span>
                 </h3>
                 <p class="mb-8 text-base text-tertiary leading-relaxed">
-                  Raw chat logs are noise. TelloDB acts as a cognitive filter,
-                  distilling human rambling into a clean, queryable lattice of
-                  facts.
+                  TelloDB turns conversations into current facts, preferences,
+                  and relationships that can be queried without replaying an
+                  entire transcript.
                 </p>
 
                 <div class="space-y-6">
                   {distillationDetails.map((item) => (
                     <div key={item.title} class="flex items-start gap-4">
                       <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/5">
-                        <MaterialIcon name={item.icon} class="text-primary" />
+                        <TelloGlyph tone={item.icon} class="h-7 w-7" />
                       </div>
                       <div>
                         <h4 class="mb-1 font-bold text-sm text-on-surface font-headline">
@@ -1662,16 +2053,16 @@ export default component$(() => {
           <div class="container mx-auto">
             <div class="scroll-reveal mb-20 max-w-2xl">
               <h2 class="mb-4 text-sm font-bold uppercase tracking-widest text-primary">
-                The Human Touch
+                Shared user context
               </h2>
               <h3 class="text-4xl font-black tracking-tight md:text-5xl">
-                One brain,
+                One memory,
                 <br />
-                infinite applications.
+                every application.
               </h3>
               <p class="mt-6 text-tertiary">
-                Our White Mercedes engine ensures your user's identity is not
-                locked inside a single chat window.
+                Give every agent the same current understanding of the user,
+                without locking that context inside one conversation or model.
               </p>
             </div>
 
@@ -1764,15 +2155,15 @@ export default component$(() => {
           <div class="container mx-auto">
             <div class="scroll-reveal mb-16 text-center lg:text-left lg:max-w-2xl">
               <h2 class="mb-4 text-sm font-bold uppercase tracking-widest text-primary font-mono">
-                Core Capabilities
+                Memory primitives
               </h2>
               <h3 class="mb-6 text-4xl font-extrabold md:text-5xl font-headline leading-tight">
-                Engineered for{" "}
-                <span class="text-gradient-accent italic">AI Scale.</span>
+                Built for{" "}
+                <span class="text-gradient-accent italic">production agents.</span>
               </h3>
               <p class="text-base text-tertiary leading-relaxed">
                 TelloDB replaces complex, slow orchestration chains with a
-                unified, high-performance cognitive database engine.
+                unified, high-performance memory engine.
               </p>
             </div>
 
@@ -1858,15 +2249,15 @@ export default component$(() => {
           <div class="container mx-auto">
             <div class="scroll-reveal mb-20 text-center">
               <h2 class="mb-4 text-sm font-bold uppercase tracking-widest text-primary">
-                The Architecture of Truth
+                Memory pipeline
               </h2>
               <h3 class="text-4xl font-black tracking-tight md:text-5xl">
-                Sentient Memory{" "}
-                <span class="italic text-primary">Pipeline.</span>
+                From conversation to{" "}
+                <span class="italic text-primary">usable context.</span>
               </h3>
               <p class="mt-6 mx-auto max-w-2xl text-tertiary">
-                TelloDB is not just storage; it is a multi-stage cognitive
-                processor that transforms raw noise into reliable agentic state.
+                TelloDB turns raw conversation into concise, current context
+                that agents can retrieve and use.
               </p>
             </div>
 
@@ -1918,7 +2309,7 @@ export default component$(() => {
                       Distill & Store
                     </span>
                     <span class="block text-[10px] uppercase tracking-widest text-primary font-black mt-1">
-                      Cognitive Controller
+                      Memory controller
                     </span>
                   </div>
                   <div class="mt-2 flex flex-wrap justify-center gap-1">
@@ -2013,16 +2404,16 @@ export default component$(() => {
           <div class="container mx-auto">
             <div class="scroll-reveal mb-20">
               <h2 class="mb-4 text-sm font-bold uppercase tracking-widest text-primary font-mono">
-                Interactive Graph
+                Relationship explorer
               </h2>
               <h3 class="text-4xl font-black tracking-tight md:text-5xl">
-                Sentient{" "}
-                <span class="text-gradient-accent italic">Memory Lattice.</span>
+                Inspect context{" "}
+                <span class="text-gradient-accent italic">as a graph.</span>
               </h3>
               <p class="mt-6 max-w-2xl text-tertiary">
-                Experience how TelloDB organizes memories. Drag nodes to
-                interact with the underlying graph logic where new facts
-                supersede the old.
+                Explore how TelloDB connects entities, preferences, and facts.
+                Drag nodes to inspect relationships and see how newer
+                information supersedes stale context.
               </p>
             </div>
 
@@ -2053,13 +2444,13 @@ export default component$(() => {
           <div class="container mx-auto">
             <div class="scroll-reveal mb-14 max-w-3xl text-center lg:text-left">
               <h2 class="mb-4 text-sm font-bold uppercase tracking-widest text-primary font-mono">
-                Delivery Path
+                Adoption path
               </h2>
               <h3 class="text-4xl font-extrabold tracking-tight md:text-5xl font-headline">
-                From prototype to
+                Start local.
                 <br />
                 <span class="text-gradient-accent italic">
-                  production memory.
+                  Scale when ready.
                 </span>
               </h3>
               <p class="mt-6 text-base text-tertiary leading-relaxed">
@@ -2153,9 +2544,9 @@ export default component$(() => {
               <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(192, 193, 255, 0.05),transparent_70%)]" />
               <div class="relative z-10">
                 <h2 class="mb-4 text-3xl font-extrabold tracking-tight md:text-5xl text-on-surface font-headline leading-tight">
-                  Build Agents That
+                  Give every agent
                   <br />
-                  <span class="text-gradient-accent">Actually Remember.</span>
+                  <span class="text-gradient-accent">durable memory.</span>
                 </h2>
                 <p class="mx-auto mb-8 max-w-xl text-xs md:text-sm leading-relaxed text-tertiary">
                   One binary, five memory substrates, zero lock-in. Start
@@ -2192,7 +2583,7 @@ export default component$(() => {
           <div class="container mx-auto max-w-5xl">
             <div class="text-center mb-16">
               <h2 class="mb-3 text-[9px] font-mono font-bold uppercase tracking-widest text-primary">
-                Two Ways to Remember
+                Deployment options
               </h2>
               <h3 class="text-3xl md:text-4xl font-extrabold tracking-tight font-headline">
                 Engine <span class="text-gradient-accent">and</span> Platform
@@ -2306,11 +2697,11 @@ export default component$(() => {
           <div class="container mx-auto">
             <div class="scroll-reveal mb-16 text-center">
               <h2 class="mb-4 text-sm font-bold uppercase tracking-widest text-primary font-mono">
-                The TelloDB Ecosystem
+                Works with your stack
               </h2>
               <h3 class="text-3xl md:text-4xl font-extrabold tracking-tight md:text-5xl font-headline">
-                Integrate Memory{" "}
-                <span class="text-gradient-accent italic">Anywhere.</span>
+                One memory layer,{" "}
+                <span class="text-gradient-accent italic">every model.</span>
               </h3>
               <p class="mt-6 mx-auto max-w-2xl text-xs md:text-sm text-tertiary leading-relaxed">
                 We provide the tooling to make persistent memory a first-class
@@ -2327,10 +2718,7 @@ export default component$(() => {
                   class="glass-panel rounded-2xl p-8 transition-all hover:border-primary/35"
                 >
                   <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/5 border border-primary/20">
-                    <MaterialIcon
-                      name={item.icon}
-                      class="text-xl text-primary"
-                    />
+                    <TelloGlyph tone={item.icon} class="h-9 w-9" />
                   </div>
                   <h4 class="mb-3 text-lg font-bold font-headline text-on-surface">
                     {item.title}
@@ -2476,7 +2864,7 @@ const structuredData = {
       "@id": "https://tellodb.com/#organization",
       name: "TelloDB",
       url: "https://tellodb.com",
-      logo: "https://tellodb.com/icon-192.png",
+      logo: "https://tellodb.com/telloDB-icon.png",
       description:
         "The persistent memory layer for AI agents. Hybrid vector + BM25 search, knowledge graphs, deterministic analytics, and fact supersession in a single Rust binary.",
       sameAs: [

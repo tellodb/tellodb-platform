@@ -56,13 +56,12 @@ export default component$(() => {
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
-        <meta name="theme-color" content="#101117" />
-        <link rel="icon" href="/icon.png" type="image/png" />
-        <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/icon-64.png" type="image/png" sizes="64x64" />
-        <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
-        <link rel="shortcut icon" href="/icon.png" />
-        <link rel="apple-touch-icon" href="/icon-192.png" />
+        <meta name="theme-color" content="#f6f8fc" />
+        <link rel="icon" href="/tellodb-mark-32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/tellodb-mark-64.png" type="image/png" sizes="64x64" />
+        <link rel="icon" href="/tellodb-mark-192.png" type="image/png" sizes="192x192" />
+        <link rel="shortcut icon" href="/tellodb-mark-64.png" />
+        <link rel="apple-touch-icon" href="/tellodb-mark-180.png" sizes="180x180" />
         {commonHeadLinks.map((link) => (
           <link key={`global-link-${link.rel}-${link.href}`} {...link} />
         ))}

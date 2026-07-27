@@ -48,7 +48,7 @@ const plans = [
   },
   {
     id: "azure_micro",
-    name: "Developer Micro",
+    name: "Developer",
     price: "$39.00",
     unit: "/month",
     description: "Azure Standard_B2als_v2 dedicated VM",
@@ -63,7 +63,7 @@ const plans = [
   },
   {
     id: "azure_standard",
-    name: "Agent Standard",
+    name: "Standard",
     price: "$89.00",
     unit: "/month",
     description: "Azure Standard_D2as_v5 dedicated VM",
@@ -78,7 +78,7 @@ const plans = [
   },
   {
     id: "azure_pro",
-    name: "Production Core",
+    name: "Production",
     price: "$179.00",
     unit: "/month",
     description: "Azure Standard_D4as_v5 dedicated VM",
@@ -93,7 +93,7 @@ const plans = [
   },
   {
     id: "azure_scale",
-    name: "Scale Master",
+    name: "Scale",
     price: "$359.00",
     unit: "/month",
     description: "Azure Standard_D8as_v5 dedicated VM",
@@ -108,7 +108,7 @@ const plans = [
   },
   {
     id: "azure_gpu",
-    name: "GPU Superbrain",
+    name: "GPU",
     price: "$549.00",
     unit: "/month",
     description: "Azure Standard_NC4as_T4 GPU VM",
@@ -145,7 +145,7 @@ export default component$(() => {
   const sub = data.value.sub;
 
   return (
-    <div class="flex min-h-screen bg-background text-on-surface font-body antialiased">
+    <div class="product-shell flex min-h-screen bg-background text-on-surface font-body antialiased">
       <main class="flex-1 overflow-y-auto p-8 lg:p-12 mb-20 max-w-5xl mx-auto w-full pt-[104px]">
         <header class="mb-12">
           <Link
@@ -153,13 +153,13 @@ export default component$(() => {
             class="text-tertiary hover:text-primary flex items-center gap-1 transition-colors w-fit"
           >
             <ArrowLeftIcon class="w-4 h-4" />
-            Mission Control
+            Overview
           </Link>
           <h1 class="font-headline text-4xl font-extrabold tracking-tighter text-on-surface mt-4">
             Billing & Prepaid Usage
           </h1>
           <p class="text-tertiary mt-2">
-            Manage your cognitive memory credits and hosting plans.
+            Manage usage credits, invoices, and hosting plans.
           </p>
         </header>
 

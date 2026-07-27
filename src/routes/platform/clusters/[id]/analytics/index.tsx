@@ -144,7 +144,7 @@ export default component$(() => {
     : 0;
 
   return (
-    <div class="flex min-h-screen bg-background text-on-surface font-body antialiased">
+    <div class="product-shell flex min-h-screen bg-background text-on-surface font-body antialiased">
       <main class="flex-1 overflow-y-auto p-6 md:p-8 lg:p-12 mb-20 max-w-7xl mx-auto w-full pt-[104px]">
         {/* Navigation & Header */}
         <header class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

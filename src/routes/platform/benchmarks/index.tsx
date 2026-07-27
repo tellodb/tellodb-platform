@@ -48,7 +48,7 @@ const datasets = [
 
 export default component$(() => {
   return (
-    <div class="flex min-h-screen bg-background text-on-surface font-body antialiased relative overflow-hidden">
+    <div class="product-shell flex min-h-screen bg-background text-on-surface font-body antialiased relative overflow-hidden">
       {/* Background glow effects */}
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-[radial-gradient(circle_at_top,rgba(192,193,255,0.08),transparent_65%)] pointer-events-none z-0"></div>
       <div class="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(93,230,255,0.03),transparent_70%)] pointer-events-none z-0"></div>

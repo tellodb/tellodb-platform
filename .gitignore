@@ -19,3 +19,4 @@ coverage/
 
 # Supabase local dev temp files
 supabase/.temp/
+.vercel

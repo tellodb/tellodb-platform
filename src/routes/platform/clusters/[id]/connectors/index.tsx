@@ -48,7 +48,7 @@ export default component$(() => {
   const connectors = data.value.connectors as any[];
 
   return (
-    <div class="flex min-h-screen bg-background text-on-surface font-body antialiased">
+    <div class="product-shell flex min-h-screen bg-background text-on-surface font-body antialiased">
       <main class="flex-1 overflow-y-auto p-8 lg:p-12 mb-20 max-w-4xl mx-auto w-full pt-[104px]">
         <header class="mb-8">
           <Link href={`/platform/clusters/${cluster.id}`} class="text-tertiary hover:text-primary flex items-center gap-1 transition-colors w-fit">

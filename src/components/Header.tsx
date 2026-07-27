@@ -16,28 +16,31 @@ export const Header = component$((props: HeaderProps) => {
   const isBlog = pathname.startsWith("/blog");
 
   return (
-    <header class="app-topbar fixed top-0 z-50 w-full font-body text-sm tracking-tight shadow-[0px_24px_48px_rgba(0,0,0,0.8)] antialiased">
-      <div class="bg-primary/10 border-b border-primary/20 w-full px-4 py-2 flex items-center justify-center text-sm font-medium text-[#E5E2E3] text-center backdrop-blur-md">
-        <span class="mr-2">🎉</span>
+    <header class="app-topbar fixed top-0 z-50 w-full font-body text-sm tracking-tight antialiased">
+      <div class="site-notice w-full px-4 py-2 flex items-center justify-center text-xs font-medium text-center">
         <span>
-          <a href="https://debate.tellodb.com" target="_blank" rel="noopener noreferrer" class="font-bold underline hover:text-primary transition-colors">debate.tellodb.com</a> is live! Compare and evaluate LLMs side-by-side.
+          New from TelloDB:
+          {" "}
+          <a href="https://debate.tellodb.com" target="_blank" rel="noopener noreferrer" class="font-bold underline underline-offset-4 transition-colors">adversarial review for consequential AI work</a>
+          {" "}
+          <span aria-hidden="true">↗</span>
         </span>
       </div>
-      <div class="flex h-16 w-full items-center justify-between px-4 md:px-6">
+      <div class="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between px-4 md:px-8">
         <div class="flex items-center gap-8">
           <Link
             href="/"
-            class="inline-flex items-center gap-2 font-headline text-xl font-bold tracking-tighter text-[#E5E2E3]"
+            class="inline-flex items-center gap-2.5 font-headline text-lg font-bold tracking-[-0.025em] text-on-surface"
             onClick$={() => {
               mobileOpen.value = false;
             }}
           >
-            <div class="flex h-10 w-10 items-center justify-center">
+            <div class="flex h-9 w-9 items-center justify-center">
               <img
-                src="/icon-192.png"
+                src="/tellodb-mark-64.png"
                 alt=""
-                width={40}
-                height={40}
+                width={36}
+                height={36}
                 loading="eager"
                 decoding="async"
                 class="object-contain"
@@ -48,9 +51,9 @@ export const Header = component$((props: HeaderProps) => {
           <nav class="hidden items-center gap-6 md:flex">
             <Link
               href="/docs"
-              class={`transition-colors duration-200 ${
+              class={`nav-item transition-colors duration-200 ${
                 isDocs
-                  ? "border-b-2 border-primary pb-1 text-primary"
+                  ? "nav-item-active"
                   : "text-tertiary hover:text-on-surface"
               }`}
             >
@@ -58,9 +61,9 @@ export const Header = component$((props: HeaderProps) => {
             </Link>
             <Link
               href="/blog"
-              class={`transition-colors duration-200 ${
+              class={`nav-item transition-colors duration-200 ${
                 isBlog
-                  ? "border-b-2 border-primary pb-1 text-primary"
+                  ? "nav-item-active"
                   : "text-tertiary hover:text-on-surface"
               }`}
             >
@@ -95,10 +98,10 @@ export const Header = component$((props: HeaderProps) => {
               href="https://github.com/tellodb/tellodb"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex h-7 w-7 items-center justify-center rounded-full bg-white transition-opacity hover:opacity-80"
+              class="header-icon-button"
               aria-label="GitHub"
             >
-              <GithubIcon class="h-3.5 w-3.5 text-[#0F1117]" />
+              <GithubIcon class="h-4 w-4" />
             </a>
             {props.user?.user_id ? (
               <>
@@ -131,7 +134,7 @@ export const Header = component$((props: HeaderProps) => {
                 </Link>
                 <Link
                   href="/signup"
-                  class="rounded-lg bg-primary px-4 py-2 text-xs font-bold text-on-primary transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/20"
+                  class="header-primary-action"
                   onClick$={() => {
                     mobileOpen.value = false;
                   }}
@@ -146,7 +149,7 @@ export const Header = component$((props: HeaderProps) => {
             {!props.user?.user_id && (
               <Link
                 href="/signup"
-                class="rounded-lg bg-primary px-3 py-1.5 text-xs font-bold text-on-primary shadow-lg"
+                class="header-primary-action px-3 py-2"
                 onClick$={() => {
                   mobileOpen.value = false;
                 }}

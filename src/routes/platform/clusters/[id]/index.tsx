@@ -472,7 +472,7 @@ export default component$(() => {
     const activateCurl = `curl -X POST ${platformUrl}/api/clusters/${cluster.id}/activate \\\n  -H "x-admin-key: 82a2cd542b86763b5941fba04db9802928c53a27256fcccb64e12f414f69826a" \\\n  -H "Content-Type: application/json" \\\n  -d '{"ip_address": "YOUR_VM_PUBLIC_IP"}'`;
 
     return (
-      <div class="flex min-h-screen bg-background text-on-surface font-body antialiased">
+      <div class="product-shell flex min-h-screen bg-background text-on-surface font-body antialiased">
         <main class="flex-grow flex items-center justify-center p-8 lg:p-12 mb-20 max-w-2xl mx-auto w-full pt-[104px]">
           <div class="w-full">
             <header class="mb-8 text-center">
@@ -613,7 +613,7 @@ export default component$(() => {
                 href="/platform"
                 class="text-xs font-bold text-tertiary hover:text-primary transition-colors flex items-center gap-1"
               >
-                <ArrowLeftIcon class="w-3.5 h-3.5" /> Return to Mission Control
+                <ArrowLeftIcon class="w-3.5 h-3.5" /> Return to overview
               </Link>
               <button
                 onClick$={() => nav(loc.url.pathname)}
@@ -630,7 +630,7 @@ export default component$(() => {
 
   if (clusterStatus.value === "failed") {
     return (
-      <div class="flex min-h-screen bg-background text-on-surface font-body antialiased">
+      <div class="product-shell flex min-h-screen bg-background text-on-surface font-body antialiased">
         <main class="flex-grow flex items-center justify-center p-8 lg:p-12 mb-20 max-w-2xl mx-auto w-full pt-[104px]">
           <div class="w-full text-center">
             <div class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-red-500/10 text-red-400 mb-4">
@@ -728,7 +728,7 @@ export default component$(() => {
                 href="/platform"
                 class="rounded-lg border border-outline-variant/20 px-6 py-3 font-bold text-sm text-on-surface transition-all hover:bg-surface-container-high"
               >
-                Back to Mission Control
+                Back to overview
               </Link>
             </div>
           </div>
@@ -738,7 +738,7 @@ export default component$(() => {
   }
 
   return (
-    <div class="flex min-h-screen bg-background text-on-surface font-body antialiased">
+    <div class="product-shell flex min-h-screen bg-background text-on-surface font-body antialiased">
       <main class="flex-1 overflow-y-auto p-8 lg:p-12 mb-20 max-w-5xl mx-auto w-full pt-[104px]">
         <header class="mb-8 flex flex-col gap-4">
           <Link
@@ -746,7 +746,7 @@ export default component$(() => {
             class="text-tertiary hover:text-primary flex items-center gap-1 transition-colors w-fit"
           >
             <ArrowLeftIcon class="w-4 h-4" />
-            Mission Control
+            Overview
           </Link>
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>

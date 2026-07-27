@@ -233,7 +233,7 @@ const plans = [
   },
   {
     id: "azure_micro",
-    name: "Developer Micro",
+    name: "Developer",
     price: "$39.00",
     unit: "/month",
     description: "Azure Standard_B2als_v2 dedicated VM",
@@ -248,7 +248,7 @@ const plans = [
   },
   {
     id: "azure_standard",
-    name: "Agent Standard",
+    name: "Standard",
     price: "$89.00",
     unit: "/month",
     description: "Azure Standard_D2as_v5 dedicated VM",
@@ -263,7 +263,7 @@ const plans = [
   },
   {
     id: "azure_pro",
-    name: "Production Core",
+    name: "Production",
     price: "$179.00",
     unit: "/month",
     description: "Azure Standard_D4as_v5 dedicated VM",
@@ -278,7 +278,7 @@ const plans = [
   },
   {
     id: "azure_scale",
-    name: "Scale Master",
+    name: "Scale",
     price: "$359.00",
     unit: "/month",
     description: "Azure Standard_D8as_v5 dedicated VM",
@@ -293,7 +293,7 @@ const plans = [
   },
   {
     id: "azure_gpu",
-    name: "GPU Superbrain",
+    name: "GPU",
     price: "$549.00",
     unit: "/month",
     description: "Azure Standard_NC4as_T4 GPU VM",
@@ -652,9 +652,9 @@ export default component$(() => {
       : "https://tellodb.com/api";
 
   return (
-    <div class="flex min-h-screen bg-background text-on-surface font-body antialiased">
+    <div class="product-shell flex min-h-screen bg-background text-on-surface font-body antialiased">
       {/* Side Navigation */}
-      <aside class="fixed left-0 top-0 hidden h-screen w-64 flex-col border-r border-outline-variant/15 bg-surface-container-lowest font-body md:flex pt-[104px]">
+      <aside class="product-sidebar fixed left-0 top-0 hidden h-screen w-64 flex-col border-r border-outline-variant/15 bg-surface-container-lowest font-body md:flex pt-[104px]">
         <div class="flex flex-col h-full px-4 py-6">
           {/* Primary Nav Section */}
           <div class="mb-6">
@@ -677,7 +677,7 @@ export default component$(() => {
                 <LayoutDashboardIcon
                   class={`w-4 h-4 ${activeMissionTab.value === "overview" || activeMissionTab.value === "api" ? "text-primary" : "text-tertiary"}`}
                 />
-                <span>Mission Control</span>
+                <span>Overview</span>
               </button>
               <button
                 type="button"
@@ -752,7 +752,7 @@ export default component$(() => {
       </aside>
 
       {/* Main Content */}
-      <main class="ml-0 flex-1 overflow-y-auto p-6 md:ml-64 lg:p-8">
+      <main class="product-main ml-0 flex-1 overflow-y-auto p-6 md:ml-64 lg:p-8">
         <header class="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
           {activeMissionTab.value === "billing" ? (
             <div>
@@ -760,7 +760,7 @@ export default component$(() => {
                 Billing &amp; Prepaid Usage
               </h1>
               <p class="mt-1.5 text-sm text-tertiary">
-                Manage your cognitive memory credits and hosting plans.
+                Manage usage credits, invoices, and hosting plans.
               </p>
             </div>
           ) : activeMissionTab.value === "settings" ? (
@@ -775,10 +775,10 @@ export default component$(() => {
           ) : (
             <div>
               <h1 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface">
-                Mission Control
+                Overview
               </h1>
               <p class="mt-1.5 text-sm text-tertiary">
-                Real-time oversight of your agent's cognitive substrate.
+                Monitor memory activity, clusters, API access, and storage.
               </p>
             </div>
           )}
@@ -795,7 +795,7 @@ export default component$(() => {
                       Engine
                     </p>
                     <p class="font-mono text-[11px] font-semibold text-on-surface -mt-0.5">
-                      NOMINAL
+                      ONLINE
                     </p>
                   </div>
                 </div>
@@ -2844,7 +2844,7 @@ client.ingest(
 
 export const head: DocumentHead = buildSeoHead({
   title: "Console | TelloDB",
-  description: "Mission Control for your agentic memory engine.",
+  description: "Manage TelloDB memory activity, clusters, API access, and storage.",
   pathname: "/platform",
   noindex: true,
 });

@@ -75,46 +75,44 @@ export default component$(() => {
   });
 
   return (
-    <main class="flex min-h-[calc(100vh-104px)] w-full flex-col md:flex-row bg-background text-on-surface font-body antialiased overflow-x-hidden">
-      {/* Brand Side */}
-      <div class="relative hidden flex-col justify-between overflow-hidden bg-surface-container-lowest p-12 md:flex md:w-1/2">
-        <div class="absolute right-0 top-0 h-96 w-96 translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/10 blur-[120px]"></div>
-        <div class="absolute bottom-0 left-0 h-80 w-80 -translate-x-1/2 translate-y-1/2 rounded-full bg-primary/10 blur-[100px]"></div>
-
-
-        <div class="relative z-10 max-w-lg">
-          <h1 class="mb-6 text-5xl font-extrabold leading-tight tracking-tight">
-            Step into the <br />
-            <span class="italic text-primary">Intelligence</span> Epoch.
-          </h1>
-          <p class="text-lg leading-relaxed text-tertiary">
-            Access the most advanced neural engine designed for security, precision, and sentient-grade interaction.
+    <main class="auth-shell">
+      <section class="auth-brand-panel">
+        <Link href="/" class="auth-brand-link">
+          <img src="/tellodb-mark-64.png" alt="" width={48} height={48} />
+          <span>TelloDB</span>
+        </Link>
+        <div class="auth-brand-copy">
+          <h1>Your agents can pick up where they left off.</h1>
+          <p>
+            One memory layer for user facts, preferences, relationships, and
+            the history behind every answer.
           </p>
         </div>
-
-        <div class="relative z-10">
-          <div class="font-mono text-[10px] uppercase tracking-widest text-outline-variant">System Status: Nominal</div>
+        <div class="auth-memory-note">
+          <span>Current fact</span>
+          <strong>Platform access is in private beta.</strong>
         </div>
-      </div>
+      </section>
 
-      {/* Login Form Side */}
-      <div class="relative flex flex-1 flex-col items-center justify-center bg-surface p-6 md:p-24">
-        <div class="w-full max-w-md">
-          <div class="mb-10 text-center">
-            <h2 class="mb-4 text-3xl font-bold tracking-tight text-on-surface">Under Development</h2>
-            <p class="text-tertiary text-lg">
-              The TelloDB platform is currently under active development.
-              <br/><br/>
-              Stay tuned for updates! We are working hard to bring you the best experience.
-            </p>
-            <div class="mt-8">
-              <Link href="/" class="rounded-lg bg-primary px-6 py-3 text-sm font-bold text-on-primary transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/20">
-                Return Home
-              </Link>
-            </div>
+      <section class="auth-action-panel">
+        <div class="auth-action-card">
+          <p class="auth-kicker">Platform access</p>
+          <h2>Sign-in is temporarily limited.</h2>
+          <p>
+            Existing pilot customers can continue using their direct access
+            links. Public account access will reopen after the current platform
+            release.
+          </p>
+          <div class="auth-actions">
+            <a href="mailto:sharjeel@tellodb.com" class="auth-primary-action">
+              Request access
+            </a>
+            <Link href="/" class="auth-secondary-action">
+              Return home
+            </Link>
           </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 });

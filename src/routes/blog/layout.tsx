@@ -31,7 +31,7 @@ export default component$(() => {
           <div class="blog-brand">
             <div class="blog-brand-icon">
               <img
-                src="/icon-64.png"
+                src="/tellodb-mark-64.png"
                 alt="TelloDB blog"
                 width={32}
                 height={32}

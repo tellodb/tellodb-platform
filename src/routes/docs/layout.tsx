@@ -92,7 +92,7 @@ export default component$(() => {
         <div class="docs-shell-left-inner">
           <div class="docs-brand">
             <div class="docs-brand-icon">
-               <LayersIcon class="w-5 h-5 text-primary" />
+              <img src="/tellodb-mark-64.png" alt="" width={28} height={28} />
             </div>
             <div>
               <p class="docs-brand-title">Docs</p>
