@@ -56,7 +56,7 @@ export default component$(() => {
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
-        <meta name="theme-color" content="#f6f8fc" />
+        <meta name="theme-color" content="#17142d" />
         <link rel="icon" href="/tellodb-mark-32.png" type="image/png" sizes="32x32" />
         <link rel="icon" href="/tellodb-mark-64.png" type="image/png" sizes="64x64" />
         <link rel="icon" href="/tellodb-mark-192.png" type="image/png" sizes="192x192" />
