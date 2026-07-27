@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  --app-header-height: 104px;
   --background: #f4f6fb;
   --surface: #ffffff;
   --surface-container-low: #edf0f6;

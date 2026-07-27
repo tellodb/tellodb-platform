@@ -191,10 +191,10 @@ const landingStyles = `
 .landing-v2 .progress-rail {
   position: fixed;
   left: 0;
-  top: 4rem;
-  z-index: 45;
+  top: var(--app-header-height, 104px);
+  z-index: 40;
   width: 100%;
-  height: 2px;
+  height: 3px;
   pointer-events: none;
   background: rgba(255, 255, 255, 0.02);
 }
@@ -465,8 +465,6 @@ const landingStyles = `
 }
 
 .landing-v2 .progress-rail {
-  top: 0;
-  height: 2px;
   background: transparent;
 }
 
