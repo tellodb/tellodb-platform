@@ -69,6 +69,14 @@ export const Header = component$((props: HeaderProps) => {
             >
               Blog
             </Link>
+            <a
+              href="/tellodb-research-paper.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="nav-item text-tertiary transition-colors duration-200 hover:text-on-surface"
+            >
+              Research paper
+            </a>
           </nav>
         </div>
 
@@ -185,6 +193,17 @@ export const Header = component$((props: HeaderProps) => {
             >
               Blog
             </Link>
+            <a
+              href="/tellodb-research-paper.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="app-topbar-mobile-link text-tertiary"
+              onClick$={() => {
+                mobileOpen.value = false;
+              }}
+            >
+              Research paper
+            </a>
             <a
               href="https://github.com/tellodb/tellodb"
               target="_blank"

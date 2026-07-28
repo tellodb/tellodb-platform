@@ -1344,6 +1344,7 @@ const platformLinks = [
   { label: "Trust Center", href: "/platform/trust" },
   { label: "Self-Hosting", href: "/platform/byoc" },
   { label: "Docs", href: "/docs" },
+  { label: "Research Paper", href: "/tellodb-research-paper.pdf" },
 ];
 
 const companyLinks = [
