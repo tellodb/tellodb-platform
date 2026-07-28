@@ -191,8 +191,8 @@ const landingStyles = `
 .landing-v2 .progress-rail {
   position: fixed;
   left: 0;
-  top: var(--app-header-height, 104px);
-  z-index: 40;
+  top: 0;
+  z-index: 55;
   width: 100%;
   height: 3px;
   pointer-events: none;
@@ -1540,11 +1540,15 @@ export default component$(() => {
 
     const updateScrollProgress = () => {
       const doc = document.documentElement;
-      const scrollTop = window.scrollY || doc.scrollTop;
-      const maxScroll = Math.max(doc.scrollHeight - window.innerHeight, 1);
+      const scrollingElement = document.scrollingElement ?? doc;
+      const scrollTop = scrollingElement.scrollTop;
+      const maxScroll = Math.max(
+        scrollingElement.scrollHeight - scrollingElement.clientHeight,
+        1,
+      );
       root.style.setProperty(
         "--scroll-progress",
-        (scrollTop / maxScroll).toFixed(4),
+        clamp(scrollTop / maxScroll, 0, 1).toFixed(4),
       );
 
       if (!heroSection) {
@@ -1577,33 +1581,33 @@ export default component$(() => {
       root.style.setProperty("--mouse-y", `${clamp(y, 0, 100).toFixed(2)}%`);
     };
 
+    let observer: IntersectionObserver | undefined;
+
     if (prefersReducedMotion) {
       revealItems.forEach((item) => item.classList.add("visible"));
-      updateScrollProgress();
-      return;
+    } else {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              (entry.target as HTMLElement).classList.add("visible");
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        },
+      );
+
+      revealItems.forEach((item) => observer?.observe(item));
     }
 
     updateScrollProgress();
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            (entry.target as HTMLElement).classList.add("visible");
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      },
-    );
-
-    revealItems.forEach((item) => observer.observe(item));
-
     const removePanelListeners: Array<() => void> = [];
 
-    if (supportsHover) {
+    if (supportsHover && !prefersReducedMotion) {
       tiltPanels.forEach((panel) => {
         const onPointerMove = (event: PointerEvent) => {
           const rect = panel.getBoundingClientRect();
@@ -1650,12 +1654,14 @@ export default component$(() => {
       updateScrollProgress();
     };
 
-    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    if (!prefersReducedMotion) {
+      window.addEventListener("pointermove", onPointerMove, { passive: true });
+    }
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
 
     cleanup(() => {
-      observer.disconnect();
+      observer?.disconnect();
       removePanelListeners.forEach((remove) => remove());
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("scroll", onScroll);

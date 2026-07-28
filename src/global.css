@@ -50,6 +50,47 @@ body {
   -webkit-backdrop-filter: blur(18px);
 }
 
+.navigation-progress {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 60;
+  height: 3px;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms ease-out;
+}
+
+.navigation-progress-active {
+  opacity: 1;
+}
+
+.navigation-progress-indicator {
+  width: 42%;
+  height: 100%;
+  background: #7467db;
+  transform: translateX(-115%);
+  animation: navigation-progress-sweep 1.1s cubic-bezier(0.22, 1, 0.36, 1)
+    infinite;
+  will-change: transform;
+}
+
+@keyframes navigation-progress-sweep {
+  0% {
+    transform: translateX(-115%) scaleX(0.55);
+  }
+
+  70% {
+    transform: translateX(180%) scaleX(1);
+  }
+
+  100% {
+    transform: translateX(245%) scaleX(0.7);
+  }
+}
+
 .site-notice {
   border-bottom: 1px solid #2f285d;
   background: #17142d;
@@ -197,6 +238,28 @@ body {
 
 .app-topbar .rounded-lg {
   border-radius: 0.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navigation-progress {
+    transition: none;
+  }
+
+  .navigation-progress-indicator {
+    width: 100%;
+    animation: navigation-progress-pulse 900ms ease-in-out infinite alternate;
+    transform: none;
+  }
+}
+
+@keyframes navigation-progress-pulse {
+  from {
+    opacity: 0.55;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* Authenticated product language */
